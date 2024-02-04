@@ -1,0 +1,12 @@
+{
+	"Chest": ["Barbell Press", "Dumbbell Press", "Dip", "Push Up", "Dumbbell Fly", "Machine Fly"],
+	"Back": ["Barbell Row", "Dumbbell Row", "Pull Up", "Lat Pulldown", "Machine Row"],
+	"Shoulders": ["Barbell Press", "Dumbbell Press", "Dumbbell Lateral Raise", "Reverse Dumbbell Fly"],
+	"Biceps": ["Barbell Curl", "Dumbbell Curl", "Machine Curl"],
+	"Triceps": ["Cable Pushdown", "Barbell Skullcrusher", "Dumbbell Skullcrusher", "Dumbbell Overhead Extension"],
+	"Abs": ["Cable Crunch"],
+	"Quads": ["Barbell Squat", "Leg Press", "Leg Extension", "Barbell Lunge", "Dumbbell Lunge"],
+	"Hamstrings": ["Stiff Leg Deadlift", "Leg Curl"],
+	"Glutes": ["Hip Thrust"],
+	"Calves": ["Calf Raise"]
+}

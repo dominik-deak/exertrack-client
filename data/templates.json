@@ -1,0 +1,71 @@
+{
+	"Full Body": {
+		"exercises": {
+			"Chest": {
+				"Barbell Press": {
+					"sets": 3,
+					"repsMin": 8,
+					"repsMax": 12
+				}
+			},
+			"Back": {
+				"Barbell Row": {
+					"sets": 3,
+					"repsMin": 8,
+					"repsMax": 12
+				}
+			},
+			"Shoulders": {
+				"Dumbbell Lateral Raise": {
+					"sets": 3,
+					"repsMin": 10,
+					"repsMax": 15
+				}
+			},
+			"Triceps": {
+				"Cable Pushdown": {
+					"sets": 3,
+					"repsMin": 10,
+					"repsMax": 15
+				}
+			},
+			"Biceps": {
+				"Dumbbell Curl": {
+					"sets": 3,
+					"repsMin": 10,
+					"repsMax": 15
+				}
+			},
+			"Quads": {
+				"Barbell Squat": {
+					"sets": 3,
+					"repsMin": 6,
+					"repsMax": 10
+				}
+			},
+			"Hamstrings": {
+				"Leg Curl": {
+					"sets": 3,
+					"repsMin": 10,
+					"repsMax": 15
+				}
+			},
+			"Calves": {
+				"Calf Raise": {
+					"sets": 3,
+					"repsMin": 10,
+					"repsMax": 15
+				}
+			},
+			"Abs": {
+				"Cable Crunch": {
+					"sets": 3,
+					"repsMin": 10,
+					"repsMax": 15
+				}
+			}
+		}
+	},
+	"Upper Body": {},
+	"Lower Body": {}
+}
