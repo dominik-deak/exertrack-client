@@ -3,14 +3,13 @@ import {
 	AlertDialog,
 	AlertDialogBackdrop,
 	AlertDialogBody,
+	AlertDialogCloseButton,
 	AlertDialogContent,
 	AlertDialogFooter,
 	AlertDialogHeader,
 	Box,
 	Button,
 	ButtonText,
-	Divider,
-	HStack,
 	Heading,
 	Input,
 	InputField,
@@ -23,8 +22,7 @@ import {
 	ModalHeader,
 	SafeAreaView,
 	Text,
-	VStack,
-	View
+	VStack
 } from '@gluestack-ui/themed';
 import { router } from 'expo-router';
 import { useState } from 'react';
@@ -32,7 +30,7 @@ import { Keyboard, TouchableWithoutFeedback } from 'react-native';
 
 export default function settings() {
 	const [showProfileModal, setShowProfileModal] = useState(false);
-	const [showDeleteModal, setShowDeleteModal] = useState(false);
+	const [showDeleteDialog, setShowDeleteDialog] = useState(false);
 	const [showAlertDialog, setShowAlertDialog] = useState(false);
 	const [firstName, setFirstName] = useState('');
 	const [lastName, setLastName] = useState('');
@@ -48,7 +46,7 @@ export default function settings() {
 							Settings
 						</Heading>
 					</Box>
-					<Box alignItems='center' flex={1} justifyContent='space-between' marginBottom={100}>
+					<Box alignItems='center' flex={1} justifyContent='space-between' marginBottom={100} marginTop={50}>
 						<VStack space='2xl' w='$5/6'>
 							<Text color='white' size='2xl'>
 								First Name: {firstName || 'Not set'}
@@ -70,7 +68,7 @@ export default function settings() {
 							<Button size='lg' bgColor='$green600' onPress={() => router.replace('/auth/login')}>
 								<ButtonText>Log out</ButtonText>
 							</Button>
-							<Button action='negative' onPress={() => setShowDeleteModal(true)}>
+							<Button action='negative' onPress={() => setShowDeleteDialog(true)}>
 								<ButtonText>Delete Account</ButtonText>
 							</Button>
 						</VStack>
@@ -97,11 +95,11 @@ export default function settings() {
 					</ModalHeader>
 					<ModalBody>
 						<VStack space='xl'>
-							<View>
+							<Box>
 								<Text size='3xl' color='$white'>
 									First Name:
 								</Text>
-								<Input variant='rounded' size='xl'>
+								<Input variant='outline' size='xl'>
 									<InputField
 										value={newFirstName}
 										placeholder='Enter New First Name'
@@ -109,12 +107,12 @@ export default function settings() {
 										color='white'
 									/>
 								</Input>
-							</View>
-							<View>
+							</Box>
+							<Box>
 								<Text size='3xl' color='$white'>
 									Last Name:
 								</Text>
-								<Input variant='rounded' size='xl'>
+								<Input variant='outline' size='xl'>
 									<InputField
 										value={newLastName}
 										placeholder='Enter New Last Name'
@@ -122,7 +120,7 @@ export default function settings() {
 										color='white'
 									/>
 								</Input>
-							</View>
+							</Box>
 						</VStack>
 					</ModalBody>
 					<ModalFooter>
@@ -153,30 +151,30 @@ export default function settings() {
 				</ModalContent>
 			</Modal>
 
-			<Modal isOpen={showDeleteModal} onClose={() => setShowDeleteModal(false)}>
-				<ModalBackdrop />
-				<ModalContent bgColor='$secondary700' maxHeight='$5/6'>
-					<ModalHeader>
+			<AlertDialog isOpen={showDeleteDialog} onClose={() => setShowDeleteDialog(false)}>
+				<AlertDialogBackdrop />
+				<AlertDialogContent bgColor='$secondary700' maxHeight='$5/6'>
+					<AlertDialogHeader>
 						<Heading size='2xl' color='white'>
 							Delete Account
 						</Heading>
-						<ModalCloseButton>
+						<AlertDialogCloseButton>
 							<AntDesign name='close' size={24} color='white' />
-						</ModalCloseButton>
-					</ModalHeader>
-					<ModalBody>
+						</AlertDialogCloseButton>
+					</AlertDialogHeader>
+					<AlertDialogBody>
 						<Text color='white'>Are you sure you want to delete your account? This actions is not reversible!</Text>
-					</ModalBody>
-					<ModalFooter>
-						<Button variant='outline' action='secondary' mr='$3' onPress={() => setShowDeleteModal(false)}>
+					</AlertDialogBody>
+					<AlertDialogFooter>
+						<Button variant='outline' action='secondary' mr='$3' onPress={() => setShowDeleteDialog(false)}>
 							<ButtonText color='white'>Cancel</ButtonText>
 						</Button>
 						<Button action='negative' borderWidth='$0' onPress={() => setShowAlertDialog(true)}>
 							<ButtonText>Delete</ButtonText>
 						</Button>
-					</ModalFooter>
-				</ModalContent>
-			</Modal>
+					</AlertDialogFooter>
+				</AlertDialogContent>
+			</AlertDialog>
 
 			<AlertDialog isOpen={showAlertDialog} onClose={() => setShowAlertDialog(false)}>
 				<AlertDialogBackdrop />

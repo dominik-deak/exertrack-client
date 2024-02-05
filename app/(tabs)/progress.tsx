@@ -1,4 +1,4 @@
-import { Box, Heading, SafeAreaView, ScrollView, Text, VStack, View } from '@gluestack-ui/themed';
+import { Box, Heading, SafeAreaView, ScrollView, Text, VStack } from '@gluestack-ui/themed';
 import { Dimensions } from 'react-native';
 import { LineChart, PieChart } from 'react-native-chart-kit';
 import lineData from '../../data/lineChart.json';
@@ -11,7 +11,7 @@ export default function progress() {
 		<SafeAreaView flex={1}>
 			<ScrollView>
 				<VStack space='lg'>
-					<View>
+					<Box>
 						<Box alignItems='center'>
 							<Heading color='$green500' size='xl'>
 								Most Used Routines
@@ -28,9 +28,9 @@ export default function progress() {
 							backgroundColor={'transparent'}
 							paddingLeft={'15'}
 						/>
-					</View>
+					</Box>
 
-					<View>
+					<Box>
 						<Box alignItems='center'>
 							<Heading color='$green500' size='xl'>
 								Volume Over Last 2 Weeks
@@ -55,7 +55,7 @@ export default function progress() {
 								paddingTop: 30
 							}}
 						/>
-					</View>
+					</Box>
 				</VStack>
 			</ScrollView>
 		</SafeAreaView>

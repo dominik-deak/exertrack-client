@@ -1,807 +1,857 @@
 [
 	{
 		"id": "d0b93ba4-dfb3-5253-b12e-8e063f1e6366",
+		"user": "702f6c5c-9c58-55d1-bedb-8f1fd0e300bc",
 		"template": "Full Body",
 		"duration": 80,
-		"date": "04/02/2024",
-		"exercises": {
-			"Barbell Press": {
+		"date": "08/02/2024",
+		"exercises": [
+			{
+				"name": "Barbell Press",
 				"bodypart": "Chest",
 				"sets": [
 					{
-						"reps": 6,
-						"weight": 17
+						"weight": 17,
+						"reps": 6
 					},
 					{
-						"reps": 17,
-						"weight": 76
+						"weight": 76,
+						"reps": 17
 					},
 					{
-						"reps": 8,
-						"weight": 100
+						"weight": 100,
+						"reps": 8
 					}
 				]
 			},
-			"Barbell Row": {
+			{
+				"name": "Barbell Row",
 				"bodypart": "Back",
 				"sets": [
 					{
-						"reps": 18,
-						"weight": 45
+						"weight": 45,
+						"reps": 18
 					},
 					{
-						"reps": 12,
-						"weight": 9
+						"weight": 9,
+						"reps": 12
 					},
 					{
-						"reps": 14,
-						"weight": 21
+						"weight": 21,
+						"reps": 14
 					}
 				]
 			},
-			"Dumbbell Lateral Raise": {
+			{
+				"name": "Dumbbell Lateral Raise",
 				"bodypart": "Shoulders",
 				"sets": [
 					{
-						"reps": 8,
-						"weight": 76
+						"weight": 76,
+						"reps": 8
 					},
 					{
-						"reps": 12,
-						"weight": 18
+						"weight": 18,
+						"reps": 12
 					},
 					{
-						"reps": 19,
-						"weight": 19
+						"weight": 19,
+						"reps": 19
 					}
 				]
 			},
-			"Cable Pushdown": {
+			{
+				"name": "Cable Pushdown",
 				"bodypart": "Triceps",
 				"sets": [
 					{
-						"reps": 7,
-						"weight": 40
+						"weight": 40,
+						"reps": 7
 					},
 					{
-						"reps": 7,
-						"weight": 38
+						"weight": 38,
+						"reps": 7
 					},
 					{
-						"reps": 17,
-						"weight": 60
+						"weight": 60,
+						"reps": 17
 					}
 				]
 			},
-			"Dumbbell Curl": {
+			{
+				"name": "Dumbbell Curl",
 				"bodypart": "Biceps",
 				"sets": [
 					{
-						"reps": 11,
-						"weight": 4
+						"weight": 4,
+						"reps": 11
 					},
 					{
-						"reps": 9,
-						"weight": 52
+						"weight": 52,
+						"reps": 9
 					},
 					{
-						"reps": 20,
-						"weight": 63
+						"weight": 63,
+						"reps": 20
 					}
 				]
 			},
-			"Barbell Squat": {
+			{
+				"name": "Barbell Squat",
 				"bodypart": "Quads",
 				"sets": [
 					{
-						"reps": 18,
-						"weight": 21
+						"weight": 21,
+						"reps": 18
 					},
 					{
-						"reps": 16,
-						"weight": 85
+						"weight": 85,
+						"reps": 16
 					},
 					{
-						"reps": 20,
-						"weight": 46
+						"weight": 46,
+						"reps": 20
 					}
 				]
 			},
-			"Leg Curl": {
+			{
+				"name": "Leg Curl",
 				"bodypart": "Hamstrings",
 				"sets": [
 					{
-						"reps": 7,
-						"weight": 61
+						"weight": 61,
+						"reps": 7
 					},
 					{
-						"reps": 19,
-						"weight": 16
+						"weight": 16,
+						"reps": 19
 					},
 					{
-						"reps": 10,
-						"weight": 49
+						"weight": 49,
+						"reps": 10
 					}
 				]
 			},
-			"Calf Raise": {
+			{
+				"name": "Calf Raise",
 				"bodypart": "Calves",
 				"sets": [
 					{
-						"reps": 10,
-						"weight": 61
+						"weight": 61,
+						"reps": 10
 					},
 					{
-						"reps": 14,
-						"weight": 9
+						"weight": 9,
+						"reps": 14
 					},
 					{
-						"reps": 20,
-						"weight": 53
+						"weight": 53,
+						"reps": 20
 					}
 				]
 			},
-			"Cable Crunch": {
+			{
+				"name": "Cable Crunch",
 				"bodypart": "Abs",
 				"sets": [
 					{
-						"reps": 13,
-						"weight": 61
+						"weight": 61,
+						"reps": 13
 					},
 					{
-						"reps": 20,
-						"weight": 3
+						"weight": 3,
+						"reps": 20
 					},
 					{
-						"reps": 6,
-						"weight": 100
+						"weight": 100,
+						"reps": 6
 					}
 				]
 			}
-		}
+		]
 	},
 	{
 		"id": "50674e06-9ac8-56d5-b2d0-df210eeeedba",
+		"user": "702f6c5c-9c58-55d1-bedb-8f1fd0e300bc",
 		"template": "Full Body",
 		"duration": 90,
-		"date": "05/02/2024",
-		"exercises": {
-			"Barbell Press": {
+		"date": "07/02/2024",
+		"exercises": [
+			{
+				"name": "Barbell Press",
 				"bodypart": "Chest",
 				"sets": [
 					{
-						"reps": 20,
-						"weight": 35
+						"weight": 35,
+						"reps": 20
 					},
 					{
-						"reps": 12,
-						"weight": 14
+						"weight": 14,
+						"reps": 12
 					},
 					{
-						"reps": 19,
-						"weight": 84
+						"weight": 84,
+						"reps": 19
 					}
 				]
 			},
-			"Barbell Row": {
+			{
+				"name": "Barbell Row",
 				"bodypart": "Back",
 				"sets": [
 					{
-						"reps": 10,
-						"weight": 100
+						"weight": 100,
+						"reps": 10
 					},
 					{
-						"reps": 9,
-						"weight": 34
+						"weight": 34,
+						"reps": 9
 					},
 					{
-						"reps": 16,
-						"weight": 82
+						"weight": 82,
+						"reps": 16
 					}
 				]
 			},
-			"Dumbbell Lateral Raise": {
+			{
+				"name": "Dumbbell Lateral Raise",
 				"bodypart": "Shoulders",
 				"sets": [
 					{
-						"reps": 6,
-						"weight": 76
+						"weight": 76,
+						"reps": 6
 					},
 					{
-						"reps": 19,
-						"weight": 12
+						"weight": 12,
+						"reps": 19
 					},
 					{
-						"reps": 10,
-						"weight": 6
+						"weight": 6,
+						"reps": 10
 					}
 				]
 			},
-			"Cable Pushdown": {
+			{
+				"name": "Cable Pushdown",
 				"bodypart": "Triceps",
 				"sets": [
 					{
-						"reps": 18,
-						"weight": 72
+						"weight": 72,
+						"reps": 18
 					},
 					{
-						"reps": 8,
-						"weight": 27
+						"weight": 27,
+						"reps": 8
 					},
 					{
-						"reps": 18,
-						"weight": 22
+						"weight": 22,
+						"reps": 18
 					}
 				]
 			},
-			"Dumbbell Curl": {
+			{
+				"name": "Dumbbell Curl",
 				"bodypart": "Biceps",
 				"sets": [
 					{
-						"reps": 15,
-						"weight": 16
+						"weight": 16,
+						"reps": 15
 					},
 					{
-						"reps": 20,
-						"weight": 47
+						"weight": 47,
+						"reps": 20
 					},
 					{
-						"reps": 20,
-						"weight": 18
+						"weight": 18,
+						"reps": 20
 					}
 				]
 			},
-			"Barbell Squat": {
+			{
+				"name": "Barbell Squat",
 				"bodypart": "Quads",
 				"sets": [
 					{
-						"reps": 7,
-						"weight": 30
+						"weight": 30,
+						"reps": 7
 					},
 					{
-						"reps": 9,
-						"weight": 37
+						"weight": 37,
+						"reps": 9
 					},
 					{
-						"reps": 9,
-						"weight": 17
+						"weight": 17,
+						"reps": 9
 					}
 				]
 			},
-			"Leg Curl": {
+			{
+				"name": "Leg Curl",
 				"bodypart": "Hamstrings",
 				"sets": [
 					{
-						"reps": 6,
-						"weight": 56
+						"weight": 56,
+						"reps": 6
 					},
 					{
-						"reps": 8,
-						"weight": 69
+						"weight": 69,
+						"reps": 8
 					},
 					{
-						"reps": 9,
-						"weight": 47
+						"weight": 47,
+						"reps": 9
 					}
 				]
 			},
-			"Calf Raise": {
+			{
+				"name": "Calf Raise",
 				"bodypart": "Calves",
 				"sets": [
 					{
-						"reps": 11,
-						"weight": 95
+						"weight": 95,
+						"reps": 11
 					},
 					{
-						"reps": 7,
-						"weight": 69
+						"weight": 69,
+						"reps": 7
 					},
 					{
-						"reps": 15,
-						"weight": 57
+						"weight": 57,
+						"reps": 15
 					}
 				]
 			},
-			"Cable Crunch": {
+			{
+				"name": "Cable Crunch",
 				"bodypart": "Abs",
 				"sets": [
 					{
-						"reps": 15,
-						"weight": 88
+						"weight": 88,
+						"reps": 15
 					},
 					{
-						"reps": 10,
-						"weight": 57
+						"weight": 57,
+						"reps": 10
 					},
 					{
-						"reps": 17,
-						"weight": 17
+						"weight": 17,
+						"reps": 17
 					}
 				]
 			}
-		}
+		]
 	},
 	{
 		"id": "45c247da-9fe3-5543-804a-bc06b2f0de1b",
+		"user": "702f6c5c-9c58-55d1-bedb-8f1fd0e300bc",
 		"template": "Full Body",
 		"duration": 53,
 		"date": "06/02/2024",
-		"exercises": {
-			"Barbell Press": {
+		"exercises": [
+			{
+				"name": "Barbell Press",
 				"bodypart": "Chest",
 				"sets": [
 					{
-						"reps": 14,
-						"weight": 40
+						"weight": 40,
+						"reps": 14
 					},
 					{
-						"reps": 11,
-						"weight": 51
+						"weight": 51,
+						"reps": 11
 					},
 					{
-						"reps": 16,
-						"weight": 32
+						"weight": 32,
+						"reps": 16
 					}
 				]
 			},
-			"Barbell Row": {
+			{
+				"name": "Barbell Row",
 				"bodypart": "Back",
 				"sets": [
 					{
-						"reps": 10,
-						"weight": 22
+						"weight": 22,
+						"reps": 10
 					},
 					{
-						"reps": 8,
-						"weight": 51
+						"weight": 51,
+						"reps": 8
 					},
 					{
-						"reps": 17,
-						"weight": 84
+						"weight": 84,
+						"reps": 17
 					}
 				]
 			},
-			"Dumbbell Lateral Raise": {
+			{
+				"name": "Dumbbell Lateral Raise",
 				"bodypart": "Shoulders",
 				"sets": [
 					{
-						"reps": 18,
-						"weight": 76
+						"weight": 76,
+						"reps": 18
 					},
 					{
-						"reps": 7,
-						"weight": 47
+						"weight": 47,
+						"reps": 7
 					},
 					{
-						"reps": 13,
-						"weight": 59
+						"weight": 59,
+						"reps": 13
 					}
 				]
 			},
-			"Cable Pushdown": {
+			{
+				"name": "Cable Pushdown",
 				"bodypart": "Triceps",
 				"sets": [
 					{
-						"reps": 13,
-						"weight": 91
+						"weight": 91,
+						"reps": 13
 					},
 					{
-						"reps": 13,
-						"weight": 21
+						"weight": 21,
+						"reps": 13
 					},
 					{
-						"reps": 15,
-						"weight": 34
+						"weight": 34,
+						"reps": 15
 					}
 				]
 			},
-			"Dumbbell Curl": {
+			{
+				"name": "Dumbbell Curl",
 				"bodypart": "Biceps",
 				"sets": [
 					{
-						"reps": 19,
-						"weight": 16
+						"weight": 16,
+						"reps": 19
 					},
 					{
-						"reps": 7,
-						"weight": 26
+						"weight": 26,
+						"reps": 7
 					},
 					{
-						"reps": 7,
-						"weight": 28
+						"weight": 28,
+						"reps": 7
 					}
 				]
 			},
-			"Barbell Squat": {
+			{
+				"name": "Barbell Squat",
 				"bodypart": "Quads",
 				"sets": [
 					{
-						"reps": 10,
-						"weight": 64
+						"weight": 64,
+						"reps": 10
 					},
 					{
-						"reps": 17,
-						"weight": 4
+						"weight": 4,
+						"reps": 17
 					},
 					{
-						"reps": 20,
-						"weight": 99
+						"weight": 99,
+						"reps": 20
 					}
 				]
 			},
-			"Leg Curl": {
+			{
+				"name": "Leg Curl",
 				"bodypart": "Hamstrings",
 				"sets": [
 					{
-						"reps": 16,
-						"weight": 25
+						"weight": 25,
+						"reps": 16
 					},
 					{
-						"reps": 8,
-						"weight": 83
+						"weight": 83,
+						"reps": 8
 					},
 					{
-						"reps": 19,
-						"weight": 42
+						"weight": 42,
+						"reps": 19
 					}
 				]
 			},
-			"Calf Raise": {
+			{
+				"name": "Calf Raise",
 				"bodypart": "Calves",
 				"sets": [
 					{
-						"reps": 11,
-						"weight": 14
+						"weight": 14,
+						"reps": 11
 					},
 					{
-						"reps": 9,
-						"weight": 93
+						"weight": 93,
+						"reps": 9
 					},
 					{
-						"reps": 12,
-						"weight": 60
+						"weight": 60,
+						"reps": 12
 					}
 				]
 			},
-			"Cable Crunch": {
+			{
+				"name": "Cable Crunch",
 				"bodypart": "Abs",
 				"sets": [
 					{
-						"reps": 6,
-						"weight": 96
+						"weight": 96,
+						"reps": 6
 					},
 					{
-						"reps": 11,
-						"weight": 97
+						"weight": 97,
+						"reps": 11
 					},
 					{
-						"reps": 20,
-						"weight": 12
+						"weight": 12,
+						"reps": 20
 					}
 				]
 			}
-		}
+		]
 	},
 	{
 		"id": "e43ec385-aad5-5cdd-a2f2-680ac6d68573",
+		"user": "702f6c5c-9c58-55d1-bedb-8f1fd0e300bc",
 		"template": "Full Body",
 		"duration": 70,
-		"date": "07/02/2024",
-		"exercises": {
-			"Barbell Press": {
+		"date": "05/02/2024",
+		"exercises": [
+			{
+				"name": "Barbell Press",
 				"bodypart": "Chest",
 				"sets": [
 					{
-						"reps": 13,
-						"weight": 91
+						"weight": 91,
+						"reps": 13
 					},
 					{
-						"reps": 9,
-						"weight": 1
+						"weight": 1,
+						"reps": 9
 					},
 					{
-						"reps": 18,
-						"weight": 62
+						"weight": 62,
+						"reps": 18
 					}
 				]
 			},
-			"Barbell Row": {
+			{
+				"name": "Barbell Row",
 				"bodypart": "Back",
 				"sets": [
 					{
-						"reps": 8,
-						"weight": 32
+						"weight": 32,
+						"reps": 8
 					},
 					{
-						"reps": 17,
-						"weight": 88
+						"weight": 88,
+						"reps": 17
 					},
 					{
-						"reps": 9,
-						"weight": 58
+						"weight": 58,
+						"reps": 9
 					}
 				]
 			},
-			"Dumbbell Lateral Raise": {
+			{
+				"name": "Dumbbell Lateral Raise",
 				"bodypart": "Shoulders",
 				"sets": [
 					{
-						"reps": 6,
-						"weight": 58
+						"weight": 58,
+						"reps": 6
 					},
 					{
-						"reps": 9,
-						"weight": 77
+						"weight": 77,
+						"reps": 9
 					},
 					{
-						"reps": 6,
-						"weight": 27
+						"weight": 27,
+						"reps": 6
 					}
 				]
 			},
-			"Cable Pushdown": {
+			{
+				"name": "Cable Pushdown",
 				"bodypart": "Triceps",
 				"sets": [
 					{
-						"reps": 19,
-						"weight": 37
+						"weight": 37,
+						"reps": 19
 					},
 					{
-						"reps": 7,
-						"weight": 75
+						"weight": 75,
+						"reps": 7
 					},
 					{
-						"reps": 8,
-						"weight": 6
+						"weight": 6,
+						"reps": 8
 					}
 				]
 			},
-			"Dumbbell Curl": {
+			{
+				"name": "Dumbbell Curl",
 				"bodypart": "Biceps",
 				"sets": [
 					{
-						"reps": 19,
-						"weight": 28
+						"weight": 28,
+						"reps": 19
 					},
 					{
-						"reps": 12,
-						"weight": 68
+						"weight": 68,
+						"reps": 12
 					},
 					{
-						"reps": 14,
-						"weight": 16
+						"weight": 16,
+						"reps": 14
 					}
 				]
 			},
-			"Barbell Squat": {
+			{
+				"name": "Barbell Squat",
 				"bodypart": "Quads",
 				"sets": [
 					{
-						"reps": 14,
-						"weight": 31
+						"weight": 31,
+						"reps": 14
 					},
 					{
-						"reps": 14,
-						"weight": 45
+						"weight": 45,
+						"reps": 14
 					},
 					{
-						"reps": 18,
-						"weight": 41
+						"weight": 41,
+						"reps": 18
 					}
 				]
 			},
-			"Leg Curl": {
+			{
+				"name": "Leg Curl",
 				"bodypart": "Hamstrings",
 				"sets": [
 					{
-						"reps": 20,
-						"weight": 20
+						"weight": 20,
+						"reps": 20
 					},
 					{
-						"reps": 15,
-						"weight": 86
+						"weight": 86,
+						"reps": 15
 					},
 					{
-						"reps": 18,
-						"weight": 87
+						"weight": 87,
+						"reps": 18
 					}
 				]
 			},
-			"Calf Raise": {
+			{
+				"name": "Calf Raise",
 				"bodypart": "Calves",
 				"sets": [
 					{
-						"reps": 6,
-						"weight": 36
+						"weight": 36,
+						"reps": 6
 					},
 					{
-						"reps": 7,
-						"weight": 12
+						"weight": 12,
+						"reps": 7
 					},
 					{
-						"reps": 18,
-						"weight": 46
+						"weight": 46,
+						"reps": 18
 					}
 				]
 			},
-			"Cable Crunch": {
+			{
+				"name": "Cable Crunch",
 				"bodypart": "Abs",
 				"sets": [
 					{
-						"reps": 6,
-						"weight": 3
+						"weight": 3,
+						"reps": 6
 					},
 					{
-						"reps": 11,
-						"weight": 60
+						"weight": 60,
+						"reps": 11
 					},
 					{
-						"reps": 6,
-						"weight": 98
+						"weight": 98,
+						"reps": 6
 					}
 				]
 			}
-		}
+		]
 	},
 	{
 		"id": "9ce49d56-abac-540a-a465-00f30bba432a",
+		"user": "702f6c5c-9c58-55d1-bedb-8f1fd0e300bc",
 		"template": "Full Body",
 		"duration": 83,
-		"date": "08/02/2024",
-		"exercises": {
-			"Barbell Press": {
+		"date": "04/02/2024",
+		"exercises": [
+			{
+				"name": "Barbell Press",
 				"bodypart": "Chest",
 				"sets": [
 					{
-						"reps": 19,
-						"weight": 62
+						"weight": 62,
+						"reps": 19
 					},
 					{
-						"reps": 15,
-						"weight": 47
+						"weight": 47,
+						"reps": 15
 					},
 					{
-						"reps": 15,
-						"weight": 33
+						"weight": 33,
+						"reps": 15
 					}
 				]
 			},
-			"Barbell Row": {
+			{
+				"name": "Barbell Row",
 				"bodypart": "Back",
 				"sets": [
 					{
-						"reps": 20,
-						"weight": 88
+						"weight": 88,
+						"reps": 20
 					},
 					{
-						"reps": 7,
-						"weight": 53
+						"weight": 53,
+						"reps": 7
 					},
 					{
-						"reps": 20,
-						"weight": 53
+						"weight": 53,
+						"reps": 20
 					}
 				]
 			},
-			"Dumbbell Lateral Raise": {
+			{
+				"name": "Dumbbell Lateral Raise",
 				"bodypart": "Shoulders",
 				"sets": [
 					{
-						"reps": 18,
-						"weight": 70
+						"weight": 70,
+						"reps": 18
 					},
 					{
-						"reps": 15,
-						"weight": 22
+						"weight": 22,
+						"reps": 15
 					},
 					{
-						"reps": 9,
-						"weight": 11
+						"weight": 11,
+						"reps": 9
 					}
 				]
 			},
-			"Cable Pushdown": {
+			{
+				"name": "Cable Pushdown",
 				"bodypart": "Triceps",
 				"sets": [
 					{
-						"reps": 8,
-						"weight": 13
+						"weight": 13,
+						"reps": 8
 					},
 					{
-						"reps": 19,
-						"weight": 66
+						"weight": 66,
+						"reps": 19
 					},
 					{
-						"reps": 6,
-						"weight": 56
+						"weight": 56,
+						"reps": 6
 					}
 				]
 			},
-			"Dumbbell Curl": {
+			{
+				"name": "Dumbbell Curl",
 				"bodypart": "Biceps",
 				"sets": [
 					{
-						"reps": 11,
-						"weight": 24
+						"weight": 24,
+						"reps": 11
 					},
 					{
-						"reps": 19,
-						"weight": 81
+						"weight": 81,
+						"reps": 19
 					},
 					{
-						"reps": 7,
-						"weight": 20
+						"weight": 20,
+						"reps": 7
 					}
 				]
 			},
-			"Barbell Squat": {
+			{
+				"name": "Barbell Squat",
 				"bodypart": "Quads",
 				"sets": [
 					{
-						"reps": 12,
-						"weight": 92
+						"weight": 92,
+						"reps": 12
 					},
 					{
-						"reps": 13,
-						"weight": 47
+						"weight": 47,
+						"reps": 13
 					},
 					{
-						"reps": 17,
-						"weight": 23
+						"weight": 23,
+						"reps": 17
 					}
 				]
 			},
-			"Leg Curl": {
+			{
+				"name": "Leg Curl",
 				"bodypart": "Hamstrings",
 				"sets": [
 					{
-						"reps": 16,
-						"weight": 78
+						"weight": 78,
+						"reps": 16
 					},
 					{
-						"reps": 8,
-						"weight": 36
+						"weight": 36,
+						"reps": 8
 					},
 					{
-						"reps": 12,
-						"weight": 3
+						"weight": 3,
+						"reps": 12
 					}
 				]
 			},
-			"Calf Raise": {
+			{
+				"name": "Calf Raise",
 				"bodypart": "Calves",
 				"sets": [
 					{
-						"reps": 17,
-						"weight": 8
+						"weight": 8,
+						"reps": 17
 					},
 					{
-						"reps": 9,
-						"weight": 11
+						"weight": 11,
+						"reps": 9
 					},
 					{
-						"reps": 17,
-						"weight": 79
+						"weight": 79,
+						"reps": 17
 					}
 				]
 			},
-			"Cable Crunch": {
+			{
+				"name": "Cable Crunch",
 				"bodypart": "Abs",
 				"sets": [
 					{
-						"reps": 18,
-						"weight": 29
+						"weight": 29,
+						"reps": 18
 					},
 					{
-						"reps": 18,
-						"weight": 29
+						"weight": 29,
+						"reps": 18
 					},
 					{
-						"reps": 19,
-						"weight": 82
+						"weight": 82,
+						"reps": 19
 					}
 				]
 			}
-		}
+		]
 	}
 ]

@@ -1,12 +1,290 @@
-{
-	"Chest": ["Barbell Press", "Dumbbell Press", "Dip", "Push Up", "Dumbbell Fly", "Machine Fly"],
-	"Back": ["Barbell Row", "Dumbbell Row", "Pull Up", "Lat Pulldown", "Machine Row"],
-	"Shoulders": ["Barbell Press", "Dumbbell Press", "Dumbbell Lateral Raise", "Reverse Dumbbell Fly"],
-	"Biceps": ["Barbell Curl", "Dumbbell Curl", "Machine Curl"],
-	"Triceps": ["Cable Pushdown", "Barbell Skullcrusher", "Dumbbell Skullcrusher", "Dumbbell Overhead Extension"],
-	"Abs": ["Cable Crunch"],
-	"Quads": ["Barbell Squat", "Leg Press", "Leg Extension", "Barbell Lunge", "Dumbbell Lunge"],
-	"Hamstrings": ["Stiff Leg Deadlift", "Leg Curl"],
-	"Glutes": ["Hip Thrust"],
-	"Calves": ["Calf Raise"]
-}
+[
+	{
+		"id": "ca18dbd6-2db9-56e6-bfd7-995ea8417ffa",
+		"name": "Barbell Press",
+		"bodypart": "Chest",
+		"type": "Free weight",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "f87bd8a8-39d1-5bd0-8f1a-511f379a0f46",
+		"name": "Dumbbell Press",
+		"bodypart": "Chest",
+		"type": "Free weight",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "9fc12b24-f3cc-510a-a035-5920d5793b51",
+		"name": "Dip",
+		"bodypart": "Chest",
+		"type": "Calisthenics",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "0abb92f4-45e3-5282-ada5-3423289dcb9e",
+		"name": "Push Up",
+		"bodypart": "Calisthenics",
+		"type": "Free weight",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "77e3bb7c-cc2a-52cd-ba8a-4fc3a0a741ec",
+		"name": "Dumbbell Fly",
+		"bodypart": "Chest",
+		"type": "Free weight",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "4475ee10-9fd4-50b9-b920-2518804d808f",
+		"name": "Machine Fly",
+		"bodypart": "Chest",
+		"type": "Machine",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "da75f59b-33f4-5612-bc23-e197b9eb42f0",
+		"name": "Barbell Row",
+		"bodypart": "Back",
+		"type": "Free weight",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "08b1abb7-623e-5300-9fc6-529ef882b1d4",
+		"name": "Dumbbell Row",
+		"bodypart": "Back",
+		"type": "Free weight",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "1c2fa80c-a0af-5d67-b5c6-245abe37be53",
+		"name": "Pull Up",
+		"bodypart": "Back",
+		"type": "Calisthenics",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "91f7f9de-675b-51f4-96ca-e2ada46508fb",
+		"name": "Lat Pulldown",
+		"bodypart": "Back",
+		"type": "Machine",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "6427a600-d61f-50b9-a018-808cb09b11d6",
+		"name": "Machine Row",
+		"bodypart": "Back",
+		"type": "Machine",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "6a9fbf5f-206f-5606-9425-8c2004ca1249",
+		"name": "Barbell Press",
+		"bodypart": "Shoulders",
+		"type": "Free weight",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "2f00e080-965f-5869-9455-42d2446fe3d2",
+		"name": "Dumbbell Press",
+		"bodypart": "Shoulders",
+		"type": "Free weight",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "ecb0bc8f-3d76-5f0b-8eaf-e351aff36ac0",
+		"name": "Dumbbell Lateral Raise",
+		"bodypart": "Shoulders",
+		"type": "Free weight",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "6cac9b91-ce86-560b-9333-9d0e5f345777",
+		"name": "Reverse Dumbbell Fly",
+		"bodypart": "Shoulders",
+		"type": "Free weight",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "2014b13c-de7d-58a2-8dec-6f1328fc2ff6",
+		"name": "Barbell Curl",
+		"bodypart": "Biceps",
+		"type": "Free weight",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "72484b3b-ed10-5b77-8088-c946756eadaa",
+		"name": "Dumbbell Curl",
+		"bodypart": "Biceps",
+		"type": "Free weight",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "1b77f6d7-76b9-59c8-afce-1d2430c5421e",
+		"name": "Machine Curl",
+		"bodypart": "Biceps",
+		"type": "Machine",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "d8792c7e-3efd-58a4-b24b-338be30fedf3",
+		"name": "Cable Pushdown",
+		"bodypart": "Triceps",
+		"type": "Machine",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "b846bf89-31b6-5bd7-b857-f0943571fa59",
+		"name": "Barbell Skullcrusher",
+		"bodypart": "Triceps",
+		"type": "Free weight",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "06c95bb6-4f0d-5483-858d-a2ac7bb823c0",
+		"name": "Dumbbell Skullcrusher",
+		"bodypart": "Triceps",
+		"type": "Free weight",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "013fbdba-b888-5e8a-b78b-da5c52d652c9",
+		"name": "Dumbbell Overhead Extension",
+		"bodypart": "Triceps",
+		"type": "Free weight",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "e1e6cd3e-db04-578a-87f0-6a41c5048cef",
+		"name": "Barbell Squat",
+		"bodypart": "Quads",
+		"type": "Free weight",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "cf2e3d4c-00ea-5685-8bd8-d862d58356d7",
+		"name": "Leg Press",
+		"bodypart": "Quads",
+		"type": "Machine",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "aabed1bc-515d-5691-9891-2ccee383edbf",
+		"name": "Leg Extension",
+		"bodypart": "Quads",
+		"type": "Machine",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "54a72b82-c0cb-5556-a51e-f2426c848aa1",
+		"name": "Barbell Lunge",
+		"bodypart": "Quads",
+		"type": "Free weight",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "7feb529b-15ae-533a-87f1-0f10613bb874",
+		"name": "Dumbbell Lunge",
+		"bodypart": "Quads",
+		"type": "Free weight",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "9f4aa67d-b8fa-53cb-8933-1fc699de8d08",
+		"name": "Stiff Leg Deadlift",
+		"bodypart": "Hamstrings",
+		"type": "Free weight",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "1baabfed-96c9-5453-9374-38d2e8fc976f",
+		"name": "Leg Curl",
+		"bodypart": "Hamstrings",
+		"type": "Machine",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "f3d9231e-2165-5888-b3a0-66c34d3a827a",
+		"name": "Hip Thrust",
+		"bodypart": "Glutes",
+		"type": "Free weight",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "3862e00c-d251-526a-b771-3f9a7b9df760",
+		"name": "Calf Raise",
+		"bodypart": "Calves",
+		"type": "Machine",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	},
+	{
+		"id": "657af4cb-0715-56f5-902b-184018642355",
+		"name": "Cable Crunch",
+		"bodypart": "Abs",
+		"type": "Machine",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024"
+	}
+]

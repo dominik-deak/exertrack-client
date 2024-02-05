@@ -1,4 +1,4 @@
-import { Box, Button, ButtonText, Heading, Input, InputField, SafeAreaView, Text, VStack, View } from '@gluestack-ui/themed';
+import { Box, Button, ButtonText, Heading, Input, InputField, SafeAreaView, Text, VStack } from '@gluestack-ui/themed';
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { Keyboard, TouchableWithoutFeedback } from 'react-native';
@@ -12,28 +12,28 @@ export default function login() {
 			<TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
 				<Box flex={1} alignItems='center' marginTop={50}>
 					<VStack space='4xl' w='$4/5'>
-						<View>
+						<Box>
 							<Heading color='$green500' size='3xl' alignSelf='center'>
 								ExerTrack
 							</Heading>
 							<Text color='$green800' size='3xl' alignSelf='center'>
 								Login
 							</Text>
-						</View>
+						</Box>
 
-						<View>
+						<Box>
 							<Text size='3xl' color='$white'>
 								Email
 							</Text>
-							<Input variant='rounded' size='xl'>
+							<Input variant='outline' size='xl'>
 								<InputField onChangeText={setEmail} placeholder='Enter Email' color='$white' />
 							</Input>
-						</View>
-						<View>
+						</Box>
+						<Box>
 							<Text size='3xl' color='$white'>
 								Password
 							</Text>
-							<Input variant='rounded' size='xl'>
+							<Input variant='outline' size='xl'>
 								<InputField
 									onChangeText={setPassword}
 									placeholder='Enter Password'
@@ -41,16 +41,16 @@ export default function login() {
 									color='$white'
 								/>
 							</Input>
-						</View>
+						</Box>
 
-						<View marginTop={50}>
+						<Box marginTop={50}>
 							<Button size='lg' bgColor='$green600' onPress={() => router.replace('/(tabs)/progress')}>
-								<ButtonText>Login</ButtonText>
+								<ButtonText>Log In</ButtonText>
 							</Button>
 							<Button size='lg' variant='link' onPress={() => router.replace('/auth/register')}>
 								<ButtonText color='$green600'>Register</ButtonText>
 							</Button>
-						</View>
+						</Box>
 					</VStack>
 				</Box>
 			</TouchableWithoutFeedback>

@@ -1,71 +1,190 @@
-{
-	"Full Body": {
-		"exercises": {
-			"Chest": {
-				"Barbell Press": {
-					"sets": 3,
-					"repsMin": 8,
-					"repsMax": 12
-				}
+[
+	{
+		"id": "0d8ac1f3-4b5c-5580-9231-1ac8b5c05ca8",
+		"name": "Full Body",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024",
+		"exercises": [
+			{
+				"name": "Barbell Press",
+				"bodypart": "Chest",
+				"sets": 3,
+				"repsMin": 8,
+				"repsMax": 12
 			},
-			"Back": {
-				"Barbell Row": {
-					"sets": 3,
-					"repsMin": 8,
-					"repsMax": 12
-				}
+			{
+				"name": "Barbell Row",
+				"bodypart": "Back",
+				"sets": 3,
+				"repsMin": 8,
+				"repsMax": 12
 			},
-			"Shoulders": {
-				"Dumbbell Lateral Raise": {
-					"sets": 3,
-					"repsMin": 10,
-					"repsMax": 15
-				}
+			{
+				"name": "Dumbbell Lateral Raise",
+				"bodypart": "Shoulders",
+				"sets": 3,
+				"repsMin": 10,
+				"repsMax": 15
 			},
-			"Triceps": {
-				"Cable Pushdown": {
-					"sets": 3,
-					"repsMin": 10,
-					"repsMax": 15
-				}
+			{
+				"name": "Cable Pushdown",
+				"bodypart": "Triceps",
+				"sets": 3,
+				"repsMin": 10,
+				"repsMax": 15
 			},
-			"Biceps": {
-				"Dumbbell Curl": {
-					"sets": 3,
-					"repsMin": 10,
-					"repsMax": 15
-				}
+			{
+				"name": "Dumbbell Curl",
+				"bodypart": "Biceps",
+				"sets": 3,
+				"repsMin": 10,
+				"repsMax": 15
 			},
-			"Quads": {
-				"Barbell Squat": {
-					"sets": 3,
-					"repsMin": 6,
-					"repsMax": 10
-				}
+			{
+				"name": "Barbell Squat",
+				"bodypart": "Quads",
+				"sets": 3,
+				"repsMin": 6,
+				"repsMax": 10
 			},
-			"Hamstrings": {
-				"Leg Curl": {
-					"sets": 3,
-					"repsMin": 10,
-					"repsMax": 15
-				}
+			{
+				"name": "Leg Curl",
+				"bodypart": "Hamstrings",
+				"sets": 3,
+				"repsMin": 10,
+				"repsMax": 15
 			},
-			"Calves": {
-				"Calf Raise": {
-					"sets": 3,
-					"repsMin": 10,
-					"repsMax": 15
-				}
+			{
+				"name": "Calf Raise",
+				"bodypart": "Calves",
+				"sets": 3,
+				"repsMin": 10,
+				"repsMax": 15
 			},
-			"Abs": {
-				"Cable Crunch": {
-					"sets": 3,
-					"repsMin": 10,
-					"repsMax": 15
-				}
+			{
+				"name": "Cable Crunch",
+				"bodypart": "Abs",
+				"sets": 3,
+				"repsMin": 10,
+				"repsMax": 15
 			}
-		}
+		]
 	},
-	"Upper Body": {},
-	"Lower Body": {}
-}
+	{
+		"id": "c17debb0-7ef8-52c2-83a5-2dd6da1e422b",
+		"name": "Upper Body",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024",
+		"exercises": [
+			{
+				"name": "Dumbbell Press",
+				"bodypart": "Chest",
+				"sets": 3,
+				"repsMin": 8,
+				"repsMax": 12
+			},
+			{
+				"name": "Machine Fly",
+				"bodypart": "Chest",
+				"sets": 3,
+				"repsMin": 10,
+				"repsMax": 15
+			},
+			{
+				"name": "Dumbbell Row",
+				"bodypart": "Back",
+				"sets": 3,
+				"repsMin": 8,
+				"repsMax": 12
+			},
+			{
+				"name": "Lat Pulldown",
+				"bodypart": "Back",
+				"sets": 3,
+				"repsMin": 10,
+				"repsMax": 15
+			},
+			{
+				"name": "Dumbbell Lateral Raise",
+				"bodypart": "Shoulders",
+				"sets": 3,
+				"repsMin": 10,
+				"repsMax": 15
+			},
+			{
+				"name": "Barbell Curl",
+				"bodypart": "Biceps",
+				"sets": 3,
+				"repsMin": 10,
+				"repsMax": 15
+			},
+			{
+				"name": "Cable Pushdown",
+				"bodypart": "Triceps",
+				"sets": 3,
+				"repsMin": 10,
+				"repsMax": 15
+			}
+		]
+	},
+	{
+		"id": "6bb38a5e-773b-5ffb-bc47-24c556b16397",
+		"name": "Lower Body",
+		"user": null,
+		"created": "08/02/2024",
+		"updated": "08/02/2024",
+		"exercises": [
+			{
+				"name": "Barbell Squat",
+				"bodypart": "Quads",
+				"sets": 3,
+				"repsMin": 8,
+				"repsMax": 12
+			},
+			{
+				"name": "Leg Press",
+				"bodypart": "Quads",
+				"sets": 3,
+				"repsMin": 10,
+				"repsMax": 15
+			},
+			{
+				"name": "Stiff Leg Deadlift",
+				"bodypart": "Hamstrings",
+				"sets": 3,
+				"repsMin": 10,
+				"repsMax": 15
+			},
+			{
+				"name": "Hamstring Curl",
+				"bodypart": "Hamstrings",
+				"sets": 3,
+				"repsMin": 10,
+				"repsMax": 15
+			},
+			{
+				"name": "Hip Thrust",
+				"bodypart": "Glutes",
+				"sets": 3,
+				"repsMin": 10,
+				"repsMax": 15
+			},
+			{
+				"name": "Calf Raise",
+				"bodypart": "Calves",
+				"sets": 3,
+				"repsMin": 10,
+				"repsMax": 15
+			},
+			{
+				"name": "Cable Crunch",
+				"bodypart": "Abs",
+				"sets": 3,
+				"repsMin": 10,
+				"repsMax": 15
+			}
+		]
+	}
+]

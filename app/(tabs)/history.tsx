@@ -14,8 +14,7 @@ import {
 	SafeAreaView,
 	ScrollView,
 	Text,
-	VStack,
-	View
+	VStack
 } from '@gluestack-ui/themed';
 import { useEffect, useState } from 'react';
 import workoutHistory from '../../data/history.json';
@@ -26,18 +25,18 @@ interface ExerciseSet {
 }
 
 interface Exercise {
+	name: string;
 	bodypart: string;
 	sets: ExerciseSet[];
 }
 
 interface Workout {
 	id: string;
+	user: string;
 	template: string;
 	duration: number;
 	date: string;
-	exercises: {
-		[exerciseName: string]: Exercise;
-	};
+	exercises: Exercise[];
 }
 
 export default function history() {
@@ -63,9 +62,9 @@ export default function history() {
 								onPress={() => setSelected(workout)}
 								bgColor='$secondary800'
 								padding={15}
-								borderRadius={20}
+								borderRadius={10}
 								key={workout.id}>
-								<Text color='white'>{workout.template}</Text>
+								<Text color='$green500'>{workout.template}</Text>
 								<Text color='white'>Date: {workout.date}</Text>
 								<Text color='white'>Duration: {workout.duration} minutes</Text>
 							</Pressable>
@@ -83,7 +82,7 @@ export default function history() {
 				<ModalBackdrop />
 				<ModalContent bgColor='$secondary700' maxHeight='$5/6'>
 					<ModalHeader>
-						<Heading size='2xl' color='white'>
+						<Heading size='2xl' color='$green500'>
 							Template: {selected?.template}
 						</Heading>
 						<ModalCloseButton>
@@ -105,28 +104,25 @@ export default function history() {
 						</HStack>
 						<Divider my='$1' />
 						<VStack space='md' paddingBottom={20}>
-							{Object.keys(selected?.exercises || {}).map(exerciseName => {
-								const exercise = selected?.exercises[exerciseName];
-								return (
-									<Box key={exerciseName} marginBottom={10}>
-										<HStack space='sm'>
-											<Text bold size='lg' color='white'>
-												{exerciseName}
+							{selected?.exercises.map(exercise => (
+								<Box key={exercise.name} marginBottom={10}>
+									<HStack space='sm'>
+										<Text bold size='lg' color='$green500'>
+											{exercise.name}
+										</Text>
+										<Text italic size='lg' color='white'>
+											{exercise.bodypart}
+										</Text>
+									</HStack>
+									<VStack space='sm' paddingLeft={10}>
+										{exercise.sets.map((set, index) => (
+											<Text key={index} color='white'>
+												Set {index + 1}: {set.weight} kg x {set.reps} reps
 											</Text>
-											<Text italic size='lg' color='white'>
-												{exercise?.bodypart}
-											</Text>
-										</HStack>
-										<VStack space='sm' paddingLeft={10}>
-											{exercise?.sets.map((set, index) => (
-												<Text key={index} color='white'>
-													Set {index + 1}: {set.reps} reps, {set.weight} kg
-												</Text>
-											))}
-										</VStack>
-									</Box>
-								);
-							})}
+										))}
+									</VStack>
+								</Box>
+							))}
 						</VStack>
 					</ModalBody>
 				</ModalContent>
