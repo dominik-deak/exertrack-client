@@ -1,3 +1,5 @@
+import workoutHistory from '@/data/history.json';
+import Workout from '@/types/workout';
 import { AntDesign } from '@expo/vector-icons';
 import {
 	Box,
@@ -17,27 +19,6 @@ import {
 	VStack
 } from '@gluestack-ui/themed';
 import { useEffect, useState } from 'react';
-import workoutHistory from '../../data/history.json';
-
-interface ExerciseSet {
-	reps: number;
-	weight: number;
-}
-
-interface Exercise {
-	name: string;
-	bodypart: string;
-	sets: ExerciseSet[];
-}
-
-interface Workout {
-	id: string;
-	user: string;
-	template: string;
-	duration: number;
-	date: string;
-	exercises: Exercise[];
-}
 
 export default function history() {
 	const [selected, setSelected] = useState<Workout | null>(null);
@@ -104,8 +85,8 @@ export default function history() {
 						</HStack>
 						<Divider my='$1' />
 						<VStack space='md' paddingBottom={20}>
-							{selected?.exercises.map(exercise => (
-								<Box key={exercise.name} marginBottom={10}>
+							{selected?.exercises.map((exercise, index) => (
+								<Box key={index} marginBottom={10}>
 									<HStack space='sm'>
 										<Text bold size='lg' color='$green500'>
 											{exercise.name}

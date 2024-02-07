@@ -46,20 +46,28 @@ export default function settings() {
 							Settings
 						</Heading>
 					</Box>
-					<Box alignItems='center' flex={1} justifyContent='space-between' marginBottom={100} marginTop={50}>
+					<Box alignItems='center' flex={1} justifyContent='space-between' marginBottom={100} marginTop={30}>
 						<VStack space='2xl' w='$5/6'>
-							<Text color='white' size='2xl'>
-								First Name: {firstName || 'Not set'}
-							</Text>
-							<Text color='white' size='2xl'>
-								Last Name: {lastName || 'Not set'}
-							</Text>
-							<Text color='white' size='2xl'>
-								Email: john@example.com
-							</Text>
-							<Text color='white' size='2xl'>
-								Password: ****
-							</Text>
+							<Box bgColor='$secondary800' padding={15} borderRadius={10}>
+								<Text color='white' size='2xl'>
+									First Name: {firstName || 'Not set'}
+								</Text>
+							</Box>
+							<Box bgColor='$secondary800' padding={15} borderRadius={10}>
+								<Text color='white' size='2xl'>
+									Last Name: {lastName || 'Not set'}
+								</Text>
+							</Box>
+							<Box bgColor='$secondary800' padding={15} borderRadius={10}>
+								<Text color='white' size='2xl'>
+									Email: john@example.com
+								</Text>
+							</Box>
+							<Box bgColor='$secondary800' padding={15} borderRadius={10}>
+								<Text color='white' size='2xl'>
+									Password: ****
+								</Text>
+							</Box>
 						</VStack>
 						<VStack space='4xl'>
 							<Button size='lg' bgColor='$green600' onPress={() => setShowProfileModal(true)}>

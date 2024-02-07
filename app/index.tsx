@@ -1,5 +1,5 @@
 import { Redirect } from 'expo-router';
 
 export default function index() {
-	return <Redirect href='/workout/noTemplate' />;
+	return <Redirect href='/(tabs)/history' />;
 }

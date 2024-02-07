@@ -1,4 +1,8 @@
-import { AntDesign } from '@expo/vector-icons';
+import bodyparts from '@/data/bodyparts.json';
+import equipmentTypes from '@/data/equipmentTypes.json';
+import exercisesData from '@/data/exercises.json';
+import Exercise from '@/types/exercise';
+import { AntDesign, Feather } from '@expo/vector-icons';
 import {
 	AlertDialog,
 	AlertDialogBackdrop,
@@ -10,6 +14,11 @@ import {
 	Box,
 	Button,
 	ButtonText,
+	Checkbox,
+	CheckboxGroup,
+	CheckboxIcon,
+	CheckboxIndicator,
+	CheckboxLabel,
 	Divider,
 	HStack,
 	Heading,
@@ -28,29 +37,58 @@ import {
 	VStack
 } from '@gluestack-ui/themed';
 import { router } from 'expo-router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Keyboard, TouchableWithoutFeedback } from 'react-native';
-import exercisesData from '../../data/exercises.json';
-
-interface Exercise {
-	id: string;
-	name: string;
-	bodypart: string;
-	type: string;
-	user: null;
-	created: string;
-	updated: string;
-}
 
 export default function exercises() {
-	const [filteredExercises, setFilteredExercises] = useState(exercisesData);
+	const [searchTerm, setSearchTerm] = useState('');
+
+	const [filteredExercises, setFilteredExercises] = useState<Exercise[]>(exercisesData);
 	const [selectedExercises, setSelectedExercises] = useState<Exercise[]>([]);
 	const [showExerciseModal, setShowExerciseModal] = useState(false);
+
+	const [selectedBodyparts, setSelectedBodyparts] = useState<string[]>([]);
+	const [showBodypartModal, setShowBodypartModal] = useState(false);
+	const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
+	const [showTypeModal, setShowTypeModal] = useState(false);
+
 	const [showCompleteDialog, setShowCompleteDialog] = useState(false);
 
-	function filterExercises(name: string) {
-		const matchingExercises = exercisesData.filter(exercise => exercise.name.toLowerCase().includes(name.toLowerCase()));
+	useEffect(() => {
+		filterExercises();
+	}, [searchTerm, selectedBodyparts, selectedTypes]);
+
+	function filterExercises() {
+		// Start with all exercises
+		let matchingExercises = [...exercisesData];
+		// Filter based on types
+		if (selectedTypes.length > 0) {
+			matchingExercises = matchingExercises.filter(exercise => selectedTypes.includes(exercise.type));
+		}
+		// Filter based on bodyparts
+		if (selectedBodyparts.length > 0) {
+			matchingExercises = matchingExercises.filter(exercise => selectedBodyparts.includes(exercise.bodypart));
+		}
+		// Filter based on search term
+		if (searchTerm.trim() !== '') {
+			matchingExercises = matchingExercises.filter(exercise =>
+				exercise.name.toLowerCase().includes(searchTerm.toLowerCase())
+			);
+		}
 		setFilteredExercises(matchingExercises);
+	}
+
+	function resetFilters() {
+		setSelectedTypes([]);
+		setSelectedBodyparts([]);
+		setSearchTerm('');
+	}
+
+	function addExercise(exercise: Exercise) {
+		setSelectedExercises(prevState => {
+			return [...prevState, exercise];
+		});
+		setShowExerciseModal(false);
 	}
 
 	return (
@@ -69,7 +107,7 @@ export default function exercises() {
 					<Box alignItems='center'>
 						<VStack space='4xl' w='$5/6'>
 							{selectedExercises.map(exercise => (
-								<Box key={exercise.name} bgColor='$secondary800' padding={15} borderRadius={10}>
+								<Box key={exercise.id} bgColor='$secondary800' padding={15} borderRadius={10}>
 									<HStack space='sm'>
 										<Text bold size='xl' color='$green500'>
 											{exercise.name}
@@ -79,6 +117,10 @@ export default function exercises() {
 										</Text>
 									</HStack>
 									<Divider marginVertical={10} />
+									<Text size='lg' color='white' marginBottom={10}>
+										Top set prediction: {Math.floor(Math.random() * (100 - 1)) + 1} Kg x{' '}
+										{Math.floor(Math.random() * (15 - 1)) + 1} reps
+									</Text>
 									<VStack space='xl'>
 										<HStack space='sm'>
 											<Text size='xl' color='$white'>
@@ -122,6 +164,7 @@ export default function exercises() {
 					</Button>
 				</Box>
 
+				{/* Exercise Modal */}
 				<Modal isOpen={showExerciseModal} onClose={() => setShowExerciseModal(false)}>
 					<ModalBackdrop />
 					<ModalContent bgColor='$secondary700' maxHeight='$5/6'>
@@ -138,11 +181,28 @@ export default function exercises() {
 								Search
 							</Text>
 							<Input variant='outline' size='md'>
-								<InputField onChangeText={filterExercises} placeholder='Enter Exercise Name' color='$white' />
+								<InputField
+									value={searchTerm}
+									onChangeText={setSearchTerm}
+									placeholder='Enter Exercise Name'
+									color='$white'
+								/>
 							</Input>
+							<HStack space='md' marginTop={10}>
+								<Button action='positive' onPress={() => setShowBodypartModal(true)}>
+									<ButtonText color='white'>
+										Bodypart {selectedBodyparts.length == 0 ? '' : `(${selectedBodyparts.length})`}
+									</ButtonText>
+								</Button>
+								<Button action='positive' onPress={() => setShowTypeModal(true)}>
+									<ButtonText color='white'>
+										Type {selectedTypes.length == 0 ? '' : `(${selectedTypes.length})`}
+									</ButtonText>
+								</Button>
+							</HStack>
 							<VStack space='xl' marginTop={20}>
 								{filteredExercises.map(exercise => (
-									<Box bgColor='$secondary800' padding={15} borderRadius={10}>
+									<Box key={exercise.id} bgColor='$secondary800' padding={15} borderRadius={10}>
 										<VStack>
 											<Text bold size='lg' color='$green500'>
 												{exercise.name}
@@ -151,14 +211,7 @@ export default function exercises() {
 												{exercise.bodypart} / {exercise.type}
 											</Text>
 										</VStack>
-										<Button
-											action='positive'
-											onPress={() => {
-												setSelectedExercises(prevState => {
-													return [...prevState, exercise];
-												});
-												setShowExerciseModal(false);
-											}}>
+										<Button action='positive' onPress={() => addExercise(exercise)}>
 											<ButtonText>Add</ButtonText>
 										</Button>
 									</Box>
@@ -166,6 +219,9 @@ export default function exercises() {
 							</VStack>
 						</ModalBody>
 						<ModalFooter>
+							<Button mr={20} action='positive' onPress={resetFilters}>
+								<ButtonText color='white'>Reset Filters</ButtonText>
+							</Button>
 							<Button variant='outline' action='secondary' onPress={() => setShowExerciseModal(false)}>
 								<ButtonText color='white'>Cancel</ButtonText>
 							</Button>
@@ -173,6 +229,81 @@ export default function exercises() {
 					</ModalContent>
 				</Modal>
 
+				{/* Bodypart Modal */}
+				<Modal isOpen={showBodypartModal} onClose={() => setShowBodypartModal(false)}>
+					<ModalBackdrop />
+					<ModalContent bgColor='$secondary700' maxHeight='$5/6'>
+						<ModalHeader>
+							<Heading size='2xl' color='white'>
+								Select Bodyparts
+							</Heading>
+							<ModalCloseButton>
+								<AntDesign name='close' size={24} color='white' />
+							</ModalCloseButton>
+						</ModalHeader>
+						<ModalBody>
+							<CheckboxGroup value={selectedBodyparts} onChange={keys => setSelectedBodyparts(keys)}>
+								<VStack space='3xl'>
+									{bodyparts.map(bodypart => (
+										<Checkbox key={bodypart} value={bodypart} aria-label={bodypart}>
+											<CheckboxIndicator mr='$2'>
+												<CheckboxIcon as={() => <Feather name='check' size={16} color='white' />} />
+											</CheckboxIndicator>
+											<CheckboxLabel color='white'>{bodypart}</CheckboxLabel>
+										</Checkbox>
+									))}
+								</VStack>
+							</CheckboxGroup>
+						</ModalBody>
+						<ModalFooter>
+							<Button mr='$3' variant='outline' action='secondary' onPress={() => setShowBodypartModal(false)}>
+								<ButtonText color='white'>Cancel</ButtonText>
+							</Button>
+							<Button action='positive' onPress={() => setShowBodypartModal(false)}>
+								<ButtonText color='white'>Ok</ButtonText>
+							</Button>
+						</ModalFooter>
+					</ModalContent>
+				</Modal>
+
+				{/* Types Modal */}
+				<Modal isOpen={showTypeModal} onClose={() => setShowTypeModal(false)}>
+					<ModalBackdrop />
+					<ModalContent bgColor='$secondary700' maxHeight='$5/6'>
+						<ModalHeader>
+							<Heading size='2xl' color='white'>
+								Select Types
+							</Heading>
+							<ModalCloseButton>
+								<AntDesign name='close' size={24} color='white' />
+							</ModalCloseButton>
+						</ModalHeader>
+						<ModalBody>
+							<CheckboxGroup value={selectedTypes} onChange={keys => setSelectedTypes(keys)}>
+								<VStack space='3xl'>
+									{equipmentTypes.map(type => (
+										<Checkbox key={type} value={type} aria-label={type}>
+											<CheckboxIndicator mr='$2'>
+												<CheckboxIcon as={() => <Feather name='check' size={16} color='white' />} />
+											</CheckboxIndicator>
+											<CheckboxLabel color='white'>{type}</CheckboxLabel>
+										</Checkbox>
+									))}
+								</VStack>
+							</CheckboxGroup>
+						</ModalBody>
+						<ModalFooter>
+							<Button mr='$3' variant='outline' action='secondary' onPress={() => setShowTypeModal(false)}>
+								<ButtonText color='white'>Cancel</ButtonText>
+							</Button>
+							<Button action='positive' onPress={() => setShowTypeModal(false)}>
+								<ButtonText color='white'>Ok</ButtonText>
+							</Button>
+						</ModalFooter>
+					</ModalContent>
+				</Modal>
+
+				{/* Complete Confirmation */}
 				<AlertDialog isOpen={showCompleteDialog} onClose={() => setShowCompleteDialog(false)}>
 					<AlertDialogBackdrop />
 					<AlertDialogContent bgColor='$secondary700' maxHeight='$5/6'>

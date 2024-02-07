@@ -1,8 +1,8 @@
+import lineData from '@/data/lineChart.json';
+import pieData from '@/data/pieChart.json';
 import { Box, Heading, SafeAreaView, ScrollView, Text, VStack } from '@gluestack-ui/themed';
 import { Dimensions } from 'react-native';
 import { LineChart, PieChart } from 'react-native-chart-kit';
-import lineData from '../../data/lineChart.json';
-import pieData from '../../data/pieChart.json';
 
 const screenWidth = Dimensions.get('window').width;
 

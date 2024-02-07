@@ -1,6 +1,6 @@
+import workoutTemplates from '@/data/templates.json';
 import { Button, ButtonText, SafeAreaView, Text } from '@gluestack-ui/themed';
 import { router } from 'expo-router';
-import workoutTemplates from '../../data/templates.json';
 
 export default function editTemplates() {
 	return (

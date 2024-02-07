@@ -1,3 +1,4 @@
+import workoutTemplates from '@/data/templates.json';
 import { AntDesign } from '@expo/vector-icons';
 import {
 	AlertDialog,
@@ -22,7 +23,6 @@ import {
 } from '@gluestack-ui/themed';
 import { router, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
-import workoutTemplates from '../../data/templates.json';
 
 export default function template() {
 	const { template: id } = useLocalSearchParams();
@@ -45,8 +45,8 @@ export default function template() {
 			<ScrollView>
 				<Box alignItems='center'>
 					<VStack space='4xl' w='$5/6'>
-						{selectedTemplate.exercises.map(exercise => (
-							<Box key={exercise.name} bgColor='$secondary800' padding={15} borderRadius={10}>
+						{selectedTemplate.exercises.map((exercise, index) => (
+							<Box key={index} bgColor='$secondary800' padding={15} borderRadius={10}>
 								<HStack space='sm'>
 									<Text bold size='xl' color='$green500'>
 										{exercise.name}
