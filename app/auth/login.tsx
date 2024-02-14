@@ -50,6 +50,9 @@ export default function login() {
 							<Button size='lg' variant='link' onPress={() => router.replace('/auth/register')}>
 								<ButtonText color='$green600'>Register</ButtonText>
 							</Button>
+							<Button size='lg' variant='link' onPress={() => router.replace('/auth/resetPass')}>
+								<ButtonText color='$green600'>Forgot Password</ButtonText>
+							</Button>
 						</Box>
 					</VStack>
 				</Box>
