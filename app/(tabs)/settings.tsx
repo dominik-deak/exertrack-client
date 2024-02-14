@@ -1,4 +1,4 @@
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign, FontAwesome } from '@expo/vector-icons';
 import {
 	AlertDialog,
 	AlertDialogBackdrop,
@@ -20,6 +20,11 @@ import {
 	ModalContent,
 	ModalFooter,
 	ModalHeader,
+	Radio,
+	RadioGroup,
+	RadioIcon,
+	RadioIndicator,
+	RadioLabel,
 	SafeAreaView,
 	Text,
 	VStack
@@ -36,6 +41,7 @@ export default function settings() {
 	const [lastName, setLastName] = useState('');
 	const [newFirstName, setNewFirstName] = useState('');
 	const [newLastName, setNewLastName] = useState('');
+	const [measurement, setMeasurement] = useState('metric');
 
 	return (
 		<SafeAreaView flex={1}>
@@ -46,7 +52,8 @@ export default function settings() {
 							Settings
 						</Heading>
 					</Box>
-					<Box alignItems='center' flex={1} justifyContent='space-between' marginBottom={100} marginTop={30}>
+
+					<Box alignItems='center' flex={1} justifyContent='space-between' marginBottom={20} marginTop={30}>
 						<VStack space='2xl' w='$5/6'>
 							<Box bgColor='$secondary800' padding={15} borderRadius={10}>
 								<Text color='white' size='2xl'>
@@ -68,7 +75,33 @@ export default function settings() {
 									Password: ****
 								</Text>
 							</Box>
+							<Box bgColor='$secondary800' padding={15} borderRadius={10}>
+								<Text color='white' size='2xl' marginBottom={10}>
+									Measurement Units:
+								</Text>
+								<RadioGroup value={measurement} onChange={setMeasurement} marginLeft={30}>
+									<VStack space='sm'>
+										<Radio value='metric'>
+											<RadioIndicator mr='$2'>
+												<RadioIcon as={() => <FontAwesome name='circle' size={13} color='white' />} />
+											</RadioIndicator>
+											<RadioLabel size='xl' color='white'>
+												Metric
+											</RadioLabel>
+										</Radio>
+										<Radio value='imperial'>
+											<RadioIndicator mr='$2'>
+												<RadioIcon as={() => <FontAwesome name='circle' size={13} color='white' />} />
+											</RadioIndicator>
+											<RadioLabel size='xl' color='white'>
+												Imperial
+											</RadioLabel>
+										</Radio>
+									</VStack>
+								</RadioGroup>
+							</Box>
 						</VStack>
+
 						<VStack space='4xl'>
 							<Button size='lg' bgColor='$green600' onPress={() => setShowProfileModal(true)}>
 								<ButtonText>Update Profile</ButtonText>
