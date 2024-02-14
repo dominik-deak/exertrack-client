@@ -32,7 +32,7 @@ export default function resetPass() {
 								ExerTrack
 							</Heading>
 							<Text color='$green800' size='3xl' alignSelf='center'>
-								Login
+								Reset Password
 							</Text>
 						</Box>
 

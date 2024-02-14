@@ -35,7 +35,7 @@ export default function register() {
 								ExerTrack
 							</Heading>
 							<Text color='$green800' size='3xl' alignSelf='center'>
-								Login
+								Register
 							</Text>
 						</Box>
 
