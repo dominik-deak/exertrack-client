@@ -1,14 +1,72 @@
-import { Box, Button, ButtonText, Heading, Input, InputField, SafeAreaView, Text, VStack } from '@gluestack-ui/themed';
+import MessageModal from '@/components/MessageModal';
+import { API } from '@/constants/config';
+import useTokens from '@/hooks/useTokens';
+import {
+	Box,
+	Button,
+	ButtonSpinner,
+	ButtonText,
+	Heading,
+	Input,
+	InputField,
+	SafeAreaView,
+	Text,
+	VStack
+} from '@gluestack-ui/themed';
+import axios from 'axios';
 import { router } from 'expo-router';
 import { useState } from 'react';
 import { Keyboard, TouchableWithoutFeedback } from 'react-native';
 
-export default function login() {
+export default function Login() {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const [isLoading, setIsLoading] = useState(false);
+	const [error, setError] = useState('');
+
+	const { setAccessToken, setRefreshToken } = useTokens();
+
+	async function onLogin() {
+		setError('');
+		setIsLoading(true);
+
+		if (!email.trim() || !password.trim()) {
+			setError('All fields are required.');
+			setIsLoading(false);
+			return;
+		}
+
+		axios
+			.post(`${API}/auth/login`, { email, password })
+			.then(async res => {
+				const { accessToken, refreshToken } = res.data;
+
+				await setAccessToken(accessToken);
+				await setRefreshToken(refreshToken);
+
+				router.replace('/(tabs)/progress');
+			})
+			.catch(error => {
+				// console.error(error);
+				let message: string;
+				if (axios.isAxiosError(error)) {
+					message = error.response?.data.error || 'Login failed. Please try again.';
+				} else if (error instanceof Error) {
+					message = error.message;
+				} else {
+					message = 'An unexpected error occurred.';
+				}
+				setError(message);
+			})
+			.finally(() => {
+				setIsLoading(false);
+			});
+	}
 
 	return (
 		<SafeAreaView flex={1}>
+			<MessageModal message={error} setMessage={setError} heading='Error' btnText='Ok' btnAction={() => setError('')} />
+
 			<TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
 				<Box flex={1} alignItems='center' marginTop={50}>
 					<VStack space='4xl' w='$4/5'>
@@ -25,7 +83,7 @@ export default function login() {
 							<Text size='3xl' color='$white'>
 								Email
 							</Text>
-							<Input variant='outline' size='xl'>
+							<Input variant='outline' size='xl' isDisabled={isLoading}>
 								<InputField onChangeText={setEmail} placeholder='Enter Email' color='$white' />
 							</Input>
 						</Box>
@@ -33,7 +91,7 @@ export default function login() {
 							<Text size='3xl' color='$white'>
 								Password
 							</Text>
-							<Input variant='outline' size='xl'>
+							<Input variant='outline' size='xl' isDisabled={isLoading}>
 								<InputField
 									onChangeText={setPassword}
 									placeholder='Enter Password'
@@ -44,13 +102,22 @@ export default function login() {
 						</Box>
 
 						<Box marginTop={50}>
-							<Button size='lg' bgColor='$green600' onPress={() => router.replace('/(tabs)/progress')}>
-								<ButtonText>Log In</ButtonText>
+							<Button size='lg' bgColor='$green600' onPress={onLogin} isDisabled={isLoading}>
+								{isLoading && <ButtonSpinner mr='$1' />}
+								<ButtonText>{isLoading ? 'Logging in...' : 'Log In'}</ButtonText>
 							</Button>
-							<Button size='lg' variant='link' onPress={() => router.replace('/auth/register')}>
+							<Button
+								size='lg'
+								variant='link'
+								onPress={() => router.replace('/auth/register')}
+								isDisabled={isLoading}>
 								<ButtonText color='$green600'>Register</ButtonText>
 							</Button>
-							<Button size='lg' variant='link' onPress={() => router.replace('/auth/resetPass')}>
+							<Button
+								size='lg'
+								variant='link'
+								onPress={() => router.replace('/auth/resetPass')}
+								isDisabled={isLoading}>
 								<ButtonText color='$green600'>Forgot Password</ButtonText>
 							</Button>
 						</Box>

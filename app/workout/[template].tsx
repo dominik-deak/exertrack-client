@@ -24,7 +24,7 @@ import {
 import { router, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 
-export default function template() {
+export default function Template() {
 	const { template: id } = useLocalSearchParams();
 	const templateIndex = workoutTemplates.findIndex(template => template.id === id);
 	const selectedTemplate = workoutTemplates[templateIndex];

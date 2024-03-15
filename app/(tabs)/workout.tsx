@@ -2,7 +2,7 @@ import workoutTemplates from '@/data/templates.json';
 import { Box, Button, ButtonText, Divider, Heading, SafeAreaView, ScrollView, Text, VStack } from '@gluestack-ui/themed';
 import { Link } from 'expo-router';
 
-export default function workout() {
+export default function Workout() {
 	return (
 		<SafeAreaView flex={1}>
 			<Box alignItems='center' marginBottom={40}>

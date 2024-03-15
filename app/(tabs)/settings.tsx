@@ -1,3 +1,6 @@
+import MessageModal from '@/components/MessageModal';
+import { API } from '@/constants/config';
+import useTokens from '@/hooks/useTokens';
 import { AntDesign, FontAwesome } from '@expo/vector-icons';
 import {
 	AlertDialog,
@@ -29,22 +32,126 @@ import {
 	Text,
 	VStack
 } from '@gluestack-ui/themed';
+import axios from 'axios';
 import { router } from 'expo-router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Keyboard, TouchableWithoutFeedback } from 'react-native';
 
-export default function settings() {
-	const [showProfileModal, setShowProfileModal] = useState(false);
-	const [showDeleteDialog, setShowDeleteDialog] = useState(false);
-	const [showAlertDialog, setShowAlertDialog] = useState(false);
+export default function Settings() {
 	const [firstName, setFirstName] = useState('');
 	const [lastName, setLastName] = useState('');
 	const [newFirstName, setNewFirstName] = useState('');
 	const [newLastName, setNewLastName] = useState('');
 	const [measurement, setMeasurement] = useState('metric');
 
+	const [profileModal, setProfileModal] = useState(false);
+	const [confirmDelete, setConfirmDelete] = useState(false);
+	const [accDeletedMsg, setAccDeletedMsg] = useState('');
+
+	const [isLoading, setIsLoading] = useState(false);
+	const [error, setError] = useState('');
+
+	const { accessToken, refreshToken, tokenError, setAccessToken, setRefreshToken } = useTokens();
+
+	useEffect(() => {
+		if (tokenError) {
+			setError(tokenError);
+		}
+	}, [accessToken, refreshToken, tokenError]);
+
+	async function logout() {
+		setError('');
+		setIsLoading(true);
+
+		if (!accessToken || !refreshToken) {
+			setError("Can't access tokens");
+			setIsLoading(false);
+			return;
+		}
+
+		axios
+			.delete(`${API}/auth/logout`, {
+				headers: {
+					Authorization: `Bearer ${accessToken}`
+				},
+				data: { refreshToken: refreshToken }
+			})
+			.then(async () => {
+				await setAccessToken(null);
+				await setRefreshToken(null);
+
+				router.replace('/auth/login');
+			})
+			.catch(error => {
+				// console.error(error);
+				let message: string;
+				if (axios.isAxiosError(error)) {
+					message = error.response?.data.error || 'Logout failed';
+				} else if (error instanceof Error) {
+					message = error.message;
+				} else {
+					message = 'An unexpected error occurred';
+				}
+				setError(message);
+			})
+			.finally(() => {
+				setIsLoading(false);
+			});
+	}
+
+	async function deleteAccount() {
+		setError('');
+		setIsLoading(true);
+
+		if (!accessToken || !refreshToken) {
+			setError("Can't access tokens");
+			setIsLoading(false);
+			return;
+		}
+
+		axios
+			.delete(`${API}/auth/delete-account`, {
+				headers: {
+					Authorization: `Bearer ${accessToken}`
+				},
+				data: { refreshToken: refreshToken }
+			})
+			.then(async () => {
+				await setAccessToken(null);
+				await setRefreshToken(null);
+
+				setAccDeletedMsg(
+					'You have successfully deleted your account. If you wish to continue using ExerTrack, please register again.'
+				);
+			})
+			.catch(error => {
+				// console.error(error);
+				let message: string;
+				if (axios.isAxiosError(error)) {
+					message = error.response?.data.error || 'Logout failed';
+				} else if (error instanceof Error) {
+					message = error.message;
+				} else {
+					message = 'An unexpected error occurred';
+				}
+				setError(message);
+			})
+			.finally(() => {
+				setIsLoading(false);
+			});
+	}
+
 	return (
 		<SafeAreaView flex={1}>
+			<MessageModal message={error} setMessage={setError} heading='Error' btnText='Ok' btnAction={() => setError('')} />
+			<MessageModal
+				message={accDeletedMsg}
+				setMessage={setAccDeletedMsg}
+				heading='Account Deleted'
+				btnText='Ok'
+				btnAction={() => router.replace('/auth/login')}
+			/>
+
 			<TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
 				<Box flex={1}>
 					<Box alignItems='center'>
@@ -81,7 +188,7 @@ export default function settings() {
 								</Text>
 								<RadioGroup value={measurement} onChange={setMeasurement} marginLeft={30}>
 									<VStack space='sm'>
-										<Radio value='metric'>
+										<Radio value='metric' isDisabled={isLoading}>
 											<RadioIndicator mr='$2'>
 												<RadioIcon as={() => <FontAwesome name='circle' size={13} color='white' />} />
 											</RadioIndicator>
@@ -89,7 +196,7 @@ export default function settings() {
 												Metric
 											</RadioLabel>
 										</Radio>
-										<Radio value='imperial'>
+										<Radio value='imperial' isDisabled={isLoading}>
 											<RadioIndicator mr='$2'>
 												<RadioIcon as={() => <FontAwesome name='circle' size={13} color='white' />} />
 											</RadioIndicator>
@@ -103,13 +210,13 @@ export default function settings() {
 						</VStack>
 
 						<VStack space='4xl'>
-							<Button size='lg' bgColor='$green600' onPress={() => setShowProfileModal(true)}>
+							<Button size='lg' bgColor='$green600' onPress={() => setProfileModal(true)} isDisabled={isLoading}>
 								<ButtonText>Update Profile</ButtonText>
 							</Button>
-							<Button size='lg' bgColor='$green600' onPress={() => router.replace('/auth/login')}>
+							<Button size='lg' bgColor='$green600' onPress={logout} isDisabled={isLoading}>
 								<ButtonText>Log out</ButtonText>
 							</Button>
-							<Button action='negative' onPress={() => setShowDeleteDialog(true)}>
+							<Button action='negative' onPress={() => setConfirmDelete(true)} isDisabled={isLoading}>
 								<ButtonText>Delete Account</ButtonText>
 							</Button>
 						</VStack>
@@ -117,12 +224,37 @@ export default function settings() {
 				</Box>
 			</TouchableWithoutFeedback>
 
+			<AlertDialog isOpen={confirmDelete} onClose={() => setConfirmDelete(false)}>
+				<AlertDialogBackdrop />
+				<AlertDialogContent bgColor='$secondary700' maxHeight='$5/6'>
+					<AlertDialogHeader>
+						<Heading size='2xl' color='white'>
+							Delete Account
+						</Heading>
+						<AlertDialogCloseButton>
+							<AntDesign name='close' size={24} color='white' />
+						</AlertDialogCloseButton>
+					</AlertDialogHeader>
+					<AlertDialogBody>
+						<Text color='white'>Are you sure you want to delete your account? This actions is not reversible!</Text>
+					</AlertDialogBody>
+					<AlertDialogFooter>
+						<Button variant='outline' action='secondary' mr='$3' onPress={() => setConfirmDelete(false)}>
+							<ButtonText color='white'>Cancel</ButtonText>
+						</Button>
+						<Button action='negative' borderWidth='$0' onPress={deleteAccount}>
+							<ButtonText>Delete</ButtonText>
+						</Button>
+					</AlertDialogFooter>
+				</AlertDialogContent>
+			</AlertDialog>
+
 			<Modal
-				isOpen={showProfileModal}
+				isOpen={profileModal}
 				onClose={() => {
 					setNewFirstName('');
 					setNewLastName('');
-					setShowProfileModal(false);
+					setProfileModal(false);
 				}}>
 				<ModalBackdrop />
 				<ModalContent bgColor='$secondary700' maxHeight='$5/6'>
@@ -172,7 +304,7 @@ export default function settings() {
 							onPress={() => {
 								setNewFirstName('');
 								setNewLastName('');
-								setShowProfileModal(false);
+								setProfileModal(false);
 							}}>
 							<ButtonText color='white'>Cancel</ButtonText>
 						</Button>
@@ -184,60 +316,13 @@ export default function settings() {
 								setLastName(newLastName);
 								setNewFirstName('');
 								setNewLastName('');
-								setShowProfileModal(false);
+								setProfileModal(false);
 							}}>
 							<ButtonText>Update</ButtonText>
 						</Button>
 					</ModalFooter>
 				</ModalContent>
 			</Modal>
-
-			<AlertDialog isOpen={showDeleteDialog} onClose={() => setShowDeleteDialog(false)}>
-				<AlertDialogBackdrop />
-				<AlertDialogContent bgColor='$secondary700' maxHeight='$5/6'>
-					<AlertDialogHeader>
-						<Heading size='2xl' color='white'>
-							Delete Account
-						</Heading>
-						<AlertDialogCloseButton>
-							<AntDesign name='close' size={24} color='white' />
-						</AlertDialogCloseButton>
-					</AlertDialogHeader>
-					<AlertDialogBody>
-						<Text color='white'>Are you sure you want to delete your account? This actions is not reversible!</Text>
-					</AlertDialogBody>
-					<AlertDialogFooter>
-						<Button variant='outline' action='secondary' mr='$3' onPress={() => setShowDeleteDialog(false)}>
-							<ButtonText color='white'>Cancel</ButtonText>
-						</Button>
-						<Button action='negative' borderWidth='$0' onPress={() => setShowAlertDialog(true)}>
-							<ButtonText>Delete</ButtonText>
-						</Button>
-					</AlertDialogFooter>
-				</AlertDialogContent>
-			</AlertDialog>
-
-			<AlertDialog isOpen={showAlertDialog} onClose={() => setShowAlertDialog(false)}>
-				<AlertDialogBackdrop />
-				<AlertDialogContent bgColor='$secondary700'>
-					<AlertDialogHeader>
-						<Heading size='lg' color='white'>
-							Account Deleted
-						</Heading>
-					</AlertDialogHeader>
-					<AlertDialogBody>
-						<Text color='white'>
-							You have successfully deleted your account. If you wish to continue using ExerTrack, please register
-							again.
-						</Text>
-					</AlertDialogBody>
-					<AlertDialogFooter>
-						<Button action='positive' onPress={() => router.replace('/auth/login')}>
-							<ButtonText>Okay</ButtonText>
-						</Button>
-					</AlertDialogFooter>
-				</AlertDialogContent>
-			</AlertDialog>
 		</SafeAreaView>
 	);
 }

@@ -1,7 +1,7 @@
 import bodyparts from '@/data/bodyparts.json';
 import equipmentTypes from '@/data/equipmentTypes.json';
 import exercisesData from '@/data/exercises.json';
-import Exercise from '@/types/exercise';
+import { Exercise } from '@/types/Exercise';
 import { AntDesign, Feather } from '@expo/vector-icons';
 import {
 	AlertDialog,
@@ -40,7 +40,7 @@ import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { Keyboard, TouchableWithoutFeedback } from 'react-native';
 
-export default function exercises() {
+export default function NoTemplate() {
 	const [searchTerm, setSearchTerm] = useState('');
 
 	const [filteredExercises, setFilteredExercises] = useState<Exercise[]>(exercisesData);

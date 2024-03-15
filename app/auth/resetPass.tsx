@@ -19,7 +19,7 @@ import { router } from 'expo-router';
 import { useState } from 'react';
 import { Keyboard, TouchableWithoutFeedback } from 'react-native';
 
-export default function resetPass() {
+export default function ResetPass() {
 	const [showAlertDialog, setShowAlertDialog] = useState(false);
 
 	return (

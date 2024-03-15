@@ -6,7 +6,7 @@ import { LineChart, PieChart } from 'react-native-chart-kit';
 
 const screenWidth = Dimensions.get('window').width;
 
-export default function progress() {
+export default function Progress() {
 	return (
 		<SafeAreaView flex={1}>
 			<ScrollView>

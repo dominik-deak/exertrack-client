@@ -1,5 +1,5 @@
 import workoutHistory from '@/data/history.json';
-import Workout from '@/types/workout';
+import { Workout } from '@/types/Workout';
 import { AntDesign } from '@expo/vector-icons';
 import {
 	Box,
@@ -20,7 +20,7 @@ import {
 } from '@gluestack-ui/themed';
 import { useEffect, useState } from 'react';
 
-export default function history() {
+export default function History() {
 	const [selected, setSelected] = useState<Workout | null>(null);
 	const [showModal, setShowModal] = useState(false);
 
