@@ -17,16 +17,26 @@ import { router } from 'expo-router';
 import { useState } from 'react';
 import { Keyboard, TouchableWithoutFeedback } from 'react-native';
 
+/**
+ * Renders the Register component, which allows users to register for the application.
+ * @returns The register screen component.
+ */
 export default function Register() {
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
-	const [confirmPassword, setConfirmPassword] = useState('');
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState('');
 	const [success, setSuccess] = useState('');
 
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const [confirmPassword, setConfirmPassword] = useState('');
+
+	/**
+	 * Handles the registration process by sending a POST request
+	 * to the server with the user's email and password.
+	 * On success, it displays a success message and redirects
+	 * the user to the login page.
+	 */
 	function register() {
-		setError('');
 		setIsLoading(true);
 
 		if (!email.trim() || !password.trim() || !confirmPassword.trim()) {
@@ -41,7 +51,7 @@ export default function Register() {
 		}
 
 		axios
-			.post(`${API}/auth/register`, { email, password, confirmPassword })
+			.post(`${API}/auth/register`, { email, password })
 			.then(() => {
 				setSuccess(
 					'Congratulations! You have successfully set up your ExerTrack account. You may now log in and begin logging your workouts.'

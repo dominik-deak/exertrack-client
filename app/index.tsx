@@ -1,27 +1,18 @@
+import LoadingScreen from '@/components/LoadingScreen';
 import useTokens from '@/hooks/useTokens';
-import { Box, HStack, SafeAreaView, Spinner, Text } from '@gluestack-ui/themed';
 import { Redirect } from 'expo-router';
 
 /**
- * Expo Secure Store source:
- * https://docs.expo.dev/versions/latest/sdk/securestore/
+ * The index page of the app.
+ * Checks if the user is logged in or not using the `useTokens` hook.
+ * If they are, redirects to the progress page. Otherwise, redirects to the login page.
+ * @returns The index page component.
  */
 export default function Index() {
 	const { accessToken, refreshToken, isLoading } = useTokens();
 
 	if (isLoading) {
-		return (
-			<SafeAreaView flex={1}>
-				<Box flex={1} alignItems='center' justifyContent='center'>
-					<HStack space='sm'>
-						<Spinner color='$green500' size='large' />
-						<Text color='$green500' size='4xl'>
-							Loading...
-						</Text>
-					</HStack>
-				</Box>
-			</SafeAreaView>
-		);
+		return <LoadingScreen />;
 	}
 
 	const isLoggedIn = accessToken !== null && refreshToken !== null;

@@ -18,16 +18,25 @@ import { router } from 'expo-router';
 import { useState } from 'react';
 import { Keyboard, TouchableWithoutFeedback } from 'react-native';
 
+/**
+ * Renders the Login component, which allows users to log in to the application.
+ * @return The Login component.
+ */
 export default function Login() {
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
+	const { setAccessToken, setRefreshToken } = useTokens();
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState('');
 
-	const { setAccessToken, setRefreshToken } = useTokens();
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
 
+	/**
+	 * Handles the login process by sending a POST request
+	 * to the server with the user's email and password.
+	 * On success, it sets the access token and refresh token
+	 * in local storage and redirects the user to the progress page.
+	 */
 	async function onLogin() {
-		setError('');
 		setIsLoading(true);
 
 		if (!email.trim() || !password.trim()) {
@@ -47,7 +56,6 @@ export default function Login() {
 				router.replace('/(tabs)/progress');
 			})
 			.catch(error => {
-				// console.error(error);
 				let message: string;
 				if (axios.isAxiosError(error)) {
 					message = error.response?.data.error || 'Login failed. Please try again.';
@@ -113,13 +121,13 @@ export default function Login() {
 								isDisabled={isLoading}>
 								<ButtonText color='$green600'>Register</ButtonText>
 							</Button>
-							<Button
+							{/* <Button
 								size='lg'
 								variant='link'
-								onPress={() => router.replace('/auth/resetPass')}
+								onPress={() => router.replace('/auth/reset-pass')}
 								isDisabled={isLoading}>
 								<ButtonText color='$green600'>Forgot Password</ButtonText>
-							</Button>
+							</Button> */}
 						</Box>
 					</VStack>
 				</Box>

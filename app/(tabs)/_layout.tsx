@@ -3,6 +3,10 @@ import Colors from '@/constants/Colors';
 import { AntDesign, Feather, FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
 
+/**
+ * The tab layout component that renders the bottom tab navigation for the app.
+ * @returns The tab layout component.
+ */
 export default function TabLayout() {
 	const colorScheme = useColorScheme();
 

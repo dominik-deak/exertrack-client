@@ -14,11 +14,9 @@ import {
 import { GestureResponderEvent } from 'react-native';
 
 /**
- * setState type source:
- * https://stackoverflow.com/a/65824149
+ * setState type source: https://stackoverflow.com/a/65824149
  *
- * onPress type source:
- * https://stackoverflow.com/a/59902008
+ * onPress type source: https://stackoverflow.com/a/59902008
  */
 type ModalProps = {
 	message: string;
@@ -28,6 +26,15 @@ type ModalProps = {
 	btnAction: (event: GestureResponderEvent) => void;
 };
 
+/**
+ * Renders a modal component with a message, header, and a button.
+ * @param message The message to be displayed in the modal.
+ * @param setMessage The function to set the message.
+ * @param heading The heading of the modal. If not provided, defaults to 'Message'.
+ * @param btnText The text to be displayed on the button. If not provided, defaults to 'Ok'.
+ * @param btnAction The function to be called when the button is pressed.
+ * @return The rendered modal component.
+ */
 function MessageModal({ message, setMessage, heading, btnText, btnAction }: ModalProps) {
 	return (
 		<AlertDialog isOpen={message ? true : false} onClose={() => setMessage('')}>

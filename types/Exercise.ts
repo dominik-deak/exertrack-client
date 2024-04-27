@@ -3,33 +3,13 @@ export type Exercise = {
 	name: string;
 	bodypart: string;
 	type: string;
-	user: null;
-	created: string;
-	updated: string;
+	userId: string | null;
+	created: Date;
+	updated: Date;
 };
 
-export type ExercisePerformed = {
+export type ExerciseSubmission = {
 	name: string;
 	bodypart: string;
-	sets: ExerciseSet[];
+	type: string;
 };
-
-export type ExerciseSet = {
-	reps: number;
-	weight: number;
-};
-
-// export type Exercise = {
-// 	id: string;
-// 	name: string;
-// 	bodypart: string;
-// 	type: string;
-// 	user: string | null;
-// 	created: Date | null;
-// 	updated: Date | null;
-// };
-
-// export type ExercisePerformed = {
-// 	id: string;
-// 	sets: ExerciseSet[];
-// };

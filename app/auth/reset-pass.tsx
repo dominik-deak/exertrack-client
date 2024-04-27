@@ -1,3 +1,6 @@
+// NOTE: This component is not used in the app and is disabled for now.
+// Ignore when marking the project.
+
 import {
 	AlertDialog,
 	AlertDialogBackdrop,
@@ -19,7 +22,8 @@ import { router } from 'expo-router';
 import { useState } from 'react';
 import { Keyboard, TouchableWithoutFeedback } from 'react-native';
 
-export default function ResetPass() {
+// TODO implement with email service
+function ResetPass() {
 	const [showAlertDialog, setShowAlertDialog] = useState(false);
 
 	return (
@@ -82,3 +86,5 @@ export default function ResetPass() {
 		</SafeAreaView>
 	);
 }
+
+// export default ResetPass; // disabled until component is fully implemented

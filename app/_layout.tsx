@@ -1,4 +1,5 @@
 // import { useColorScheme } from '@/components/useColorScheme';
+import UnitPreferenceProvider from '@/contexts/UnitPreferenceContext';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { config } from '@gluestack-ui/config'; // Default theme from Gluestack
 import { GluestackUIProvider } from '@gluestack-ui/themed';
@@ -49,6 +50,17 @@ export default function RootLayout() {
 	return <RootLayoutNav />;
 }
 
+/**
+ * The root layout navigator.
+ *
+ * Applies:
+ * - the Gluestack UI provider with the default config
+ * - the unit preference provider
+ * - the theme provider with the dark theme.
+ *
+ * Defaults to the index screen.
+ * @returns The root layout navigator component.
+ */
 function RootLayoutNav() {
 	// const colorScheme = useColorScheme();
 
@@ -56,9 +68,11 @@ function RootLayoutNav() {
 		<GluestackUIProvider config={config}>
 			{/* <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}> */}
 			<ThemeProvider value={DarkTheme}>
-				<Stack screenOptions={{ headerShown: false, gestureEnabled: false }}>
-					<Stack.Screen name='index' />
-				</Stack>
+				<UnitPreferenceProvider>
+					<Stack screenOptions={{ headerShown: false, gestureEnabled: false }}>
+						<Stack.Screen name='index' />
+					</Stack>
+				</UnitPreferenceProvider>
 			</ThemeProvider>
 		</GluestackUIProvider>
 	);
