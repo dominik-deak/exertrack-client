@@ -18,7 +18,7 @@ export type TemplateExercise = {
 	userId: string | null;
 	created: Date;
 	updated: Date;
-	prediction?: string;
+	prediction?: string | null;
 	previousWeight?: number | null;
 	previousReps?: number | null;
 };

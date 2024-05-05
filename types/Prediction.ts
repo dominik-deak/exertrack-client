@@ -1,5 +1,5 @@
 export type Predictions = {
-	[key: string]: string;
+	[key: string]: string | null;
 };
 
 export type PreviousBestSets = {

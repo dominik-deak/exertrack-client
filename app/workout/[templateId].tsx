@@ -302,7 +302,7 @@ export default function CustomTemplate() {
 						<VStack space='4xl' w='$5/6'>
 							{template?.exercises.map((exercise, exerIndex) => (
 								<Box key={exerIndex} bgColor='$secondary800' padding={15} borderRadius={10}>
-									<HStack space='sm'>
+									<HStack space='md'>
 										<Text bold size='xl' color='$green500'>
 											{exercise.name}
 										</Text>
@@ -333,12 +333,14 @@ export default function CustomTemplate() {
 												</Text>
 											</HStack>
 										)}
-									<Text size='md' color='white' marginBottom={10}>
-										First set suggestion:{' '}
-										<Text size='md' color='$green500'>
-											{exercise.prediction || 'No prediction available'}
+									{exercise.prediction !== null && (
+										<Text size='md' color='white' marginBottom={10}>
+											First set suggestion:{' '}
+											<Text size='md' color='$green500'>
+												{exercise.prediction}
+											</Text>
 										</Text>
-									</Text>
+									)}
 
 									<VStack space='xl'>
 										{/* Array.from source:

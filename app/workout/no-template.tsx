@@ -587,12 +587,12 @@ export default function NoTemplate() {
 							{selectedExercises.map(exercise => (
 								<Box key={`selected-${exercise.id}`} bgColor='$secondary800' padding={15} borderRadius={10}>
 									<Box flexDirection='row' justifyContent='space-between'>
-										<VStack space='sm'>
+										<VStack space='xs'>
 											<Text bold size='xl' color='$green500'>
 												{exercise.name}
 											</Text>
 											<Text italic size='md' color='white'>
-												Target: {exercise.bodypart}
+												{exercise.bodypart}
 											</Text>
 										</VStack>
 										<Button onPress={() => removeExercise(exercise.id)} disabled={isLoading} bgColor='gray'>
@@ -615,12 +615,14 @@ export default function NoTemplate() {
 												</Text>
 											</HStack>
 										)}
-									<Text size='md' color='white' marginBottom={10}>
-										First set suggestion:{' '}
-										<Text size='md' color='$green500'>
-											{exercise.prediction}
+									{exercise.prediction !== null && (
+										<Text size='md' color='white' marginBottom={10}>
+											First set suggestion:{' '}
+											<Text size='md' color='$green500'>
+												{exercise.prediction}
+											</Text>
 										</Text>
-									</Text>
+									)}
 
 									<VStack space='xl'>
 										{/* Array.from source:

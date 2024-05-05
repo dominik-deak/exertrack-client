@@ -18,7 +18,7 @@ export type WorkoutExercise = {
 	created: Date;
 	updated: Date;
 	sets: ExerciseSet[];
-	prediction?: string;
+	prediction?: string | null;
 	previousWeight?: number | null;
 	previousReps?: number | null;
 };
