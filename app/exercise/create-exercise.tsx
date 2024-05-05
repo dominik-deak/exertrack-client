@@ -218,45 +218,47 @@ export default function CreateExercise() {
 				</Button>
 			</Box>
 
-			<ScrollView>
-				<Box alignItems='center'>
-					<VStack w='$5/6'>
-						<Text size='3xl' color='$white' mb={10}>
-							Exercise Name
-						</Text>
-						<Input isDisabled={isLoading} variant='outline' size='lg' mb={20}>
-							<InputField
-								value={exerciseName}
-								onChangeText={setExerciseName}
-								placeholder='Exercise Name'
-								color='$white'
+			{bodyparts.length > 0 && equipmentTypes.length > 0 && (
+				<ScrollView>
+					<Box alignItems='center'>
+						<VStack w='$5/6'>
+							<Text size='3xl' color='$white' mb={10}>
+								Exercise Name
+							</Text>
+							<Input isDisabled={isLoading} variant='outline' size='lg' mb={20}>
+								<InputField
+									value={exerciseName}
+									onChangeText={setExerciseName}
+									placeholder='Exercise Name'
+									color='$white'
+								/>
+							</Input>
+							<Text size='3xl' color='$white' mb={10}>
+								Exercise Bodypart
+							</Text>
+							<Dropdown
+								items={bodyparts}
+								// for some reason the dropdown item becomes lowercase, need to capitalise it
+								onChange={val => setSelectedBodypart(val.charAt(0).toUpperCase() + val.slice(1))}
+								isDisabled={isLoading}
 							/>
-						</Input>
-						<Text size='3xl' color='$white' mb={10}>
-							Exercise Bodypart
-						</Text>
-						<Dropdown
-							items={bodyparts}
-							// for some reason the dropdown item becomes lowercase, need to capitalise it
-							onChange={val => setSelectedBodypart(val.charAt(0).toUpperCase() + val.slice(1))}
-							isDisabled={isLoading}
-						/>
-						<Text size='3xl' color='$white' mb={10} mt={20}>
-							Exercise Equipment Type
-						</Text>
-						<Dropdown
-							items={equipmentTypes}
-							// for some reason the dropdown item becomes lowercase, need to capitalise it
-							onChange={val => setSelectedType(val.charAt(0).toUpperCase() + val.slice(1))}
-							isDisabled={isLoading}
-						/>
+							<Text size='3xl' color='$white' mb={10} mt={20}>
+								Exercise Equipment Type
+							</Text>
+							<Dropdown
+								items={equipmentTypes}
+								// for some reason the dropdown item becomes lowercase, need to capitalise it
+								onChange={val => setSelectedType(val.charAt(0).toUpperCase() + val.slice(1))}
+								isDisabled={isLoading}
+							/>
 
-						<Button onPress={validateExercise} isDisabled={isLoading} bgColor='$green600' marginTop={40}>
-							<ButtonText color='white'>Create Exercise</ButtonText>
-						</Button>
-					</VStack>
-				</Box>
-			</ScrollView>
+							<Button onPress={validateExercise} isDisabled={isLoading} bgColor='$green600' marginTop={40}>
+								<ButtonText color='white'>Create Exercise</ButtonText>
+							</Button>
+						</VStack>
+					</Box>
+				</ScrollView>
+			)}
 
 			{/* Create Confirmation */}
 			<AlertDialog isOpen={showCreateDialog} onClose={() => setShowCreateDialog(false)}>
