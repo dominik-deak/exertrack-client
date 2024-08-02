@@ -19,6 +19,7 @@ ExerTrack is a mobile application designed to help users track their workouts an
 - **Gluestack UI:** Utilized for creating a custom, theme-able user interface with dark mode support.
 - **Axios:** Handles HTTP requests to the back-end server for data retrieval and submission.
 - **Secure Store:** Safely stores JWTs and other sensitive information on the device.
+- **TypeScript**: Enhances code quality with static typing, preventing type-related errors and improving maintainability.
 
 ## User Interface
 
